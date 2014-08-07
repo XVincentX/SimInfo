@@ -1,0 +1,117 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+    xmlns:Behaviors="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit" 
+    xmlns:WindDataLib="clr-namespace:WindDataLib;assembly=WindDataLib"
+    xmlns:coll="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:local="clr-namespace:WindInfo"
+    x:Class="WindInfo.MainPage"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded" >
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <i:Interaction.Behaviors>
+        <Behaviors:AutoFocusBehavior  SelectAllOnFocus="True" CycleNavigation="True" />
+    </i:Interaction.Behaviors>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False"  Mode="Default" >
+            <shell:ApplicationBarIconButton x:Name="go" IconUri="/Assets/AppBar/check.png" Text="login" Click="loginButton_Click"></shell:ApplicationBarIconButton>
+            <shell:ApplicationBarIconButton x:Name="about" IconUri="/Assets/AppBar/questionmark.png" Text="about" Click="about_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="SimInfo" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="login" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Path=Resources.MainPageLogin, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" />
+            <Grid Grid.Row="1" ShowGridLines="False" >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"  Text="Username:" VerticalAlignment="Center"  />
+                <TextBlock HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"  Text="Password:" VerticalAlignment="Center" />
+                <TextBlock HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0"  Text="Carrier:" VerticalAlignment="Center" />
+                <TextBox Text="" Grid.Row="0" Grid.Column="1" TabIndex="1" x:Name="usrtxt" />
+                <PasswordBox Grid.Row="1" Grid.Column="1" Password="" TabIndex="2" x:Name="pwdtxt" />
+                <Button TabIndex="3" Grid.Row="3" Grid.Column="1" x:Name="loginButton" Content="Login" Click="loginButton_Click"/>
+                <Button TabIndex="4" Grid.Row="4" Grid.Column="1" x:Name="livelogin" Click="livelogin_Click" Content="OneDrive Login"/>
+                <Button TabIndex="5" Grid.Row="5" Grid.Column="1" x:Name="notworking" Content="{Binding Path=Resources.NotWorking, Source={StaticResource LocalizedStrings}, FallbackValue='Non funziona!'}" Click="notworking_Click"/>
+                <toolkit:ListPicker x:Name="LLS" Grid.Column="1" Grid.Row="2">
+                    <toolkit:ListPicker.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50" Height="50" Source="{Binding Image}" Margin="0 0 20 0"/>
+                                <TextBlock Text="{Binding Text}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </toolkit:ListPicker.ItemTemplate>
+                    <toolkit:ListPicker.FullModeItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="10 10 10 10" Width="50" Height="50" Source="{Binding Image}"/>
+                                <TextBlock Text="{Binding Text}" Style="{StaticResource PhoneTextLargeStyle}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </toolkit:ListPicker.FullModeItemTemplate>
+                </toolkit:ListPicker>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

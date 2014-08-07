@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <!--	[[1]]	# App title #		-->
+    <title>WindInfo per Windows Phone</title>
+    <meta name="description" content="Wind Info Windows Phone application">
+    <meta name="author" content="Vincenzo Chianese">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="stylesheets/base.min.css">
+    <link rel="stylesheet" href="stylesheets/skeleton.css">
+    <link rel="stylesheet" href="stylesheets/layout.css">
+
+    <style type="text/css">
+        /* 	[[3]] #Windows Phone App Website Branding Styles */
+
+        /* Text and Background colour */
+        body {
+            color: #000;
+            background-color: #BDBDBD;
+        }
+
+        /* Header Colours */
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
+        }
+
+        /* Link colour */
+        a, a:visited {
+            color: #666;
+        }
+
+        /* Logo */
+        #header #logo h1 {
+            width: 100px;
+            height: 100px;
+            background: transparent url(images/branding/Wind300.jpg) round;
+        }
+
+        /* Strapline colour */
+        #header #strapline p {
+            color: #000;
+        }
+
+        /* App Feature List - define custom feature icons here -  */
+        ul.featurelist li.BulletImage {
+            background-image: url(images/listcircle.png);
+        }
+
+        /* User Review Quote */
+        blockquote.user_quote p {
+            color: #666;
+        }
+    </style>
+
+    <link rel="shortcut icon" href="images/branding/favicon.ico">
+
+</head>
+<body>
+
+    <div id="maincontainer" class="container">
+
+        <div class="sixteen columns" id="header">
+
+            <div id="logo" class="four columns alpha">
+                <!--	[[4]]	# App title #		-->
+                <h1>Your App Title Here</h1>
+            </div>
+
+            <div id="strapline" class="six columns omega offset-by-six">
+                <!--	[[5]]	# App strapline #		-->
+                <p>WindInfo</p>
+            </div>
+        </div>
+        <br class="clear" />
+        <div class="sixteen columns" id="contentcontainer">
+
+            <div class="four columns alpha">
+                <h2>Latest tweets</h2>
+                <!--	# Twitter Feed  #		-->
+                <div class="tweet"></div>
+                <!--	[[6]]	# Twitter Follow Button : Enter your twitter link below #		-->
+                <a href="https://twitter.com/d3dvincent" class="twitter-follow-button" data-show-count="false">Follow WP7appSite</a>
+            </div>
+
+            <div id="phonescreens" class="six columns">
+                <div id="slider">
+                    <!--	[[7]]	# App Screenshots - Replace items in this list with your own 240x400px Images #		-->
+                    <ul>
+                        <li><img src="images/screenshots/w1.jpg" alt="App Screenshot" /></li>
+                        <li><img src="images/screenshots/w2.jpg" alt="App Screenshot" /></li>
+                        <li><img src="images/screenshots/w3.jpg" alt="App Screenshot" /></li>
+                        <li><img src="images/screenshots/w4.jpg" alt="App Screenshot" /></li>
+                        <li><img src="images/screenshots/w5.jpg" alt="App Screenshot" /></li>
+                        <li><img src="images/screenshots/w6.jpg" alt="App Screenshot" /></li>
+                        <li><img src="images/screenshots/w7.jpg" alt="App Screenshot" /></li>
+                    </ul>
+                </div>
+                <!--	[[8]]	# App Marketplace Link - Find your app on the marketplace and insert the URL below#		-->
+                <p class="downloadlink"><a href="http://www.windowsphone.com/it-it/store/app/windinfo/c0caf670-5488-4aef-9010-f8427de82b37">Download for Windows Phone</a></p>
+                <p style="text-align:center;"><a href="http://www.windowsphone.com/s?appid=64a51aa7-56c4-4ff8-bca1-4ebc7dff0cd7">Download beta version</a></p>
+                <form style="text-align:center" action="/api/Dnt" method="get" target="_top">
+                    <input type="image" src="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </div>
+
+            <div id="features" class="six columns omega">
+                <h2>Features</h2>
+                <!--	[[9]]	# App Feature List #		-->
+                <ul class="featurelist">
+                    <li class="BulletImage">Completamente gratuita, ora e per sempre</li>
+                    <li class="BulletImage">Gestisce più numeri sullo stesso account</li>
+                    <li class="BulletImage">Autoaggiornamento ogni 30 minuti</li>
+                    <li class="BulletImage">Soglie di allarme toast impostabili</li>
+                    <li class="BulletImage">Colori tile intercambiabili</li>
+                    <li class="BulletImage">Già una nuova versione in sviluppo!</li>
+                </ul>
+                <!--	[[10]]	# User Reviews & Quotes #		-->
+                <blockquote class="user_quote">
+                    <p>Questa applicazione è una perdita di tempo. Sei un deficiente!</p>
+                    <cite>Domenico Chianese, mio padre.</cite>
+                </blockquote>
+                <blockquote class="user_quote">
+                    <p>Non vale una cicca!</p>
+                    <cite>Lilio</cite>
+                </blockquote>
+
+                <blockquote class="user_quote">
+                    <p>Ho chiesto solo due giorni fa il colore black per la tile....oggi è reso disponibile....assistenza esagerata.</p>
+                    <cite>Franco</cite>
+                </blockquote>
+                <blockquote class="user_quote">
+                    <p>Complimenti allo sviluppatore: merita tutte e 5 stelle. Peccato che non ci abbia ancora pensato la WIND: per lei 0 stelle!!!!</p>
+                    <cite>Carlo</cite>
+                </blockquote>
+
+                <blockquote class="user_quote">
+                    <p>Un inizio un pò difficoltosa, ma come inizio non c'é male. Speriamo che lo sviluppo continui e che non cancellino anche questa. Ah dimenticavo, Wind sei una compagnia superpagliaccia con le pezze al culo. Vendono i WP brandizzati e non sviluppano un'app. Comunque meglio 1000 volte questa che quello schifo per android</p>
+                    <cite>Monia</cite>
+                </blockquote>
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+    <!--	# Footer #		-->
+    <div class="container" id="footer">
+        <p>Created for you by <a target="_blank" href="Resume_Chianese.html">Vincenzo Chianese</a></p>
+    </div>
+
+    <!-- Load all the JS -->
+    <script type="text/javascript" src="javascripts/jsLoader.js"></script>
+
+    <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+    
+            $("#slider").easySlider({
+                auto: true,
+                continuous: true,
+                pause: 5000,
+                controlsShow: false
+            });
+
+        });
+
+        //	[[2]]	# Twitter Feed Options - see http://tweet.seaofclouds.com/ for details #
+        jQuery(function ($) {
+            $(".tweet").tweet({
+                username: "D3DVincent",
+                join_text: "auto",
+                count: 3,
+                auto_join_text_default: "We said:",
+                auto_join_text_ed: "We",
+                auto_join_text_ing: "We were",
+                auto_join_text_reply: "",
+                auto_join_text_url: "",
+                loading_text: ""
+            });
+        });
+
+    </script>
+
+
+
+</body>
+</html>
