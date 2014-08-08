@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WindInfo</RootNamespace>
     <AssemblyName>WindInfo</AssemblyName>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <SilverlightVersion>
     </SilverlightVersion>
     <TargetFrameworkProfile>
@@ -21,7 +21,7 @@
     <SupportedCultures>it</SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>WindInfo_release.xap</XapFilename>
+    <XapFilename>WindInfo_$(Configuration)_$(Platform).xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
     <SilverlightAppEntry>WindInfo.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
@@ -31,7 +31,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <FodyPath>..\packages\Fody.1.19.1.0</FodyPath>
@@ -39,6 +39,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <DefaultLanguage>en-US</DefaultLanguage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -109,10 +110,10 @@
       <HintPath>..\packages\PhoneThemeManager.2.0\lib\windowsphone8\JeffWilcox.PhoneThemeManager.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Live">
-      <HintPath>..\packages\LiveSDK.5.6\lib\WindowsPhone8\Microsoft.Live.dll</HintPath>
+      <HintPath>..\packages\LiveSDK.5.6\lib\WindowsPhone81\Microsoft.Live.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Live.Controls">
-      <HintPath>..\packages\LiveSDK.5.6\lib\WindowsPhone8\Microsoft.Live.Controls.dll</HintPath>
+      <HintPath>..\packages\LiveSDK.5.6\lib\WindowsPhone81\Microsoft.Live.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
@@ -285,6 +286,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
     <None Include="Fonts\LiveSymbol.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml">
@@ -302,16 +306,23 @@
     <Content Include="Assets\AppBar\refresh.png" />
     <Content Include="Assets\AppBar\save.png" />
     <Content Include="Assets\AppBar\stop.png" />
+    <Content Include="Assets\BadgeLogo.png" />
     <Content Include="Assets\coop.jpg" />
     <Content Include="Assets\fb.png" />
     <Content Include="Assets\in.jpg" />
+    <Content Include="Assets\Logo.png" />
     <Content Include="Assets\mejan.jpg" />
     <Content Include="Assets\Noverca.jpg" />
     <Content Include="Assets\sk.jpg" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\SquareTile150x150.png" />
+    <Content Include="Assets\SquareTile71x71.png" />
+    <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\tim.jpg" />
     <Content Include="Assets\tre.jpg" />
     <Content Include="Assets\tw.jpg" />
     <Content Include="Assets\vodafone.jpg" />
+    <Content Include="Assets\WideLogo.png" />
     <Content Include="Assets\wind.jpg" />
     <Content Include="BugSense\BugSense - SDK License Agreement.txt" />
     <Content Include="Icon.png" />
