@@ -43,7 +43,7 @@ namespace WindInfo
             var id = (sender as Button).Tag.ToString();
             try
             {
-                var receipt = await CurrentApp.RequestProductPurchaseAsync(id, true);
+                var receipt = await CurrentApp.RequestProductPurchaseAsync(id);
                 Fulfill(id, receipt);
                 new ToastPrompt { Message = AppResources.PurchaseComplete }.Show();
 
@@ -53,7 +53,7 @@ namespace WindInfo
             }
         }
 
-        private async void Fulfill(string item, string receipt)
+        private async void Fulfill(string item, PurchaseResults receipt)
         {
             var t = CurrentApp.LoadListingInformationAsync();
             int v;
@@ -108,7 +108,7 @@ namespace WindInfo
 
             if (prod.Value.ProductType == ProductType.Consumable)
             {
-                CurrentApp.ReportProductFulfillment(item);
+                await CurrentApp.ReportConsumableFulfillmentAsync(item, receipt.TransactionId);
             }
 
         }

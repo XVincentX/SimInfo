@@ -395,7 +395,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\w8\WindDataLib\WindDataLib.csproj">
+    <ProjectReference Include="..\SimInfo_8.1\WindDataLib\WindDataLib.csproj">
       <Project>{7ec3dec4-c69e-4e47-961e-3b45c100d23e}</Project>
       <Name>WindDataLib</Name>
     </ProjectReference>
