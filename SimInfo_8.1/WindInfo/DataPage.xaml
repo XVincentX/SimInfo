@@ -1,0 +1,261 @@
+﻿<phone:PhoneApplicationPage 
+ x:Class="WindInfo.DataPage"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ x:Name="NDataPage"
+ xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+ xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+ xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+ xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+ xmlns:Behaviors="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit" 
+ xmlns:Wind="clr-namespace:WindInfo.Code"
+ xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+ xmlns:tiles="clr-namespace:Tiles;assembly=Tiles"
+ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+ xmlns:wc="clr-namespace:Tiles;assembly=Tiles"
+ xmlns:sys="clr-namespace:System;assembly=mscorlib"
+ xmlns:wptookit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+ xmlns:c4t="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
+ mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+ FontFamily="{StaticResource PhoneFontFamilyNormal}"
+ FontSize="{StaticResource PhoneFontSizeNormal}"
+ Foreground="{StaticResource PhoneForegroundBrush}"
+ SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+ shell:SystemTray.IsVisible="True"
+ d:DataContext="{Binding FakeModel, Source={StaticResource LocalizedStrings}}">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+
+    <i:Interaction.Behaviors>
+        <Behaviors:AutoFocusBehavior SelectAllOnFocus="True" CycleNavigation="True" />
+        <Behaviors:ApplicationBarBehavior IsMenuEnabled="True" Mode="Default">
+            <Behaviors:ApplicationBarIconButton x:Name="save" IconUri="/Assets/AppBar/save.png" Click="ApplicationBarIconButton_Click" Text="Save"/>
+            <Behaviors:ApplicationBarIconButton x:Name="update" IconUri="/Assets/AppBar/refresh.png" Click="ApplicationBarIconButton_Click" Text="Refresh"/>
+            <Behaviors:ApplicationBarIconButton x:Name="about" IconUri="/Assets/AppBar/questionmark.png" Click="ApplicationBarIconButton_Click" Text="About"/>
+            <Behaviors:ApplicationBarBehavior.MenuItems>
+                <!--<Behaviors:ApplicationBarMenuItem Text="{Binding Resources.MenuLockScreen, Source={StaticResource LocalizedStrings}}" Click="ApplicationBarMenuItem_Click_1"/>-->
+                <Behaviors:ApplicationBarMenuItem Text="{Binding Resources.MenuBaDisable, Source={StaticResource LocalizedStrings}}" Click="agent_enabledisable"/>
+                <Behaviors:ApplicationBarMenuItem Text="{Binding Resources.MenuAddin, Source={StaticResource LocalizedStrings}}" Click="ApplicationBarMenuItem_Click"/>
+                <Behaviors:ApplicationBarMenuItem Text="{Binding Resources.AddNumber, Source={StaticResource LocalizedStrings}}" Click="GotoNumbers"/>
+                <Behaviors:ApplicationBarMenuItem Text="{Binding Resources.OneDrive, Source={StaticResource LocalizedStrings}}" Click="OneDrive"/>
+            </Behaviors:ApplicationBarBehavior.MenuItems>
+        </Behaviors:ApplicationBarBehavior>
+    </i:Interaction.Behaviors>
+
+    <UserControl.Resources>
+        <Wind:ImageConverter x:Key="ImageConverter" />
+        <Wind:StringJoinConverter x:Key="StringJoinConverter" />
+        <Wind:ShellCommand x:Key="ShellCommand"/>
+        <Wind:ColorsCollection x:Key="AccentColors"/>
+        <Wind:ColorToBrush x:Key="ColorToBrush"/>
+        <Wind:PercentageToColorConverter x:Key="PercentageToColorConverter"/>
+        <Wind:BrushToItemSource x:Key="BrushToItemSource"/>
+        <wc:HiddenLessZero x:Key="HiddenLessZero"/>
+        <Wind:DateToPercentageConverter x:Key="DateToPercentage"/>
+        <Wind:TypeToImageConverter x:Key="TTIC"/>
+        <sys:Int32 x:Key="int100">100</sys:Int32>
+    </UserControl.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" >
+        <!--Pivot Control-->
+        <controls:Pivot x:Name="pivotNumbers" SelectionChanged="pivotNumbers_SelectionChanged" Title="SimInfo" ItemsSource="{Binding NumberInfos}" >
+            <controls:Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10 10 0 0" Source="{Binding Path=DataContext.Type, Converter={StaticResource TTIC}, ElementName=NDataPage}"/>
+                            <TextBlock Style="{StaticResource PhoneTextLargeStyle}" Text="{Binding FriendlyName, FallbackValue=Number}" x:Name="FriendlyName"/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding Number}" Style="{StaticResource PhoneTextSubtleStyle}" x:Name="Number"/>
+                    </StackPanel>
+                </DataTemplate>
+            </controls:Pivot.HeaderTemplate>
+            <controls:Pivot.ItemTemplate>
+                <DataTemplate>
+                    <ScrollViewer>
+                        <StackPanel>
+                            <toolkit:WrapPanel Loaded="WrapPanel_Loaded" ItemWidth="210" ItemHeight="210" HorizontalAlignment="Center" >
+                                <StackPanel Margin="5 5 0 0" Background="#123456" Visibility="{Binding Minutes, Converter={StaticResource HiddenLessZero}}" >
+                                    <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Text="{Binding Path=Resources.DataPagesMinutes, Source={StaticResource LocalizedStrings}}" ></TextBlock>
+                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                        <TextBlock Foreground="White" HorizontalAlignment="Center" Text="{Binding Minutes}" x:Name="Minutes" FontSize="{StaticResource PhoneFontSizeExtraLarge}"></TextBlock>
+                                        <TextBlock Foreground="White" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Text="/"></TextBlock>
+                                        <TextBlock Foreground="White" HorizontalAlignment="Center" Text="{Binding MinutesTotal}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"></TextBlock>
+                                    </StackPanel>
+                                    <ProgressBar Value="{Binding Minutes}" Maximum="{Binding MinutesTotal}" >
+                                        <i:Interaction.Behaviors>
+                                            <Behaviors:MultiBindingBehavior Converter="{StaticResource PercentageToColorConverter}" PropertyName="Foreground">
+                                                <Behaviors:MultiBindingItem Value="{Binding Minutes}"></Behaviors:MultiBindingItem>
+                                                <Behaviors:MultiBindingItem Value="{Binding MinutesTotal}"></Behaviors:MultiBindingItem>
+                                            </Behaviors:MultiBindingBehavior>
+                                        </i:Interaction.Behaviors>
+                                    </ProgressBar>
+                                    <TextBlock Foreground="White" HorizontalAlignment="Center" Text="{Binding Path=Resources.MinuteLimit, Source={StaticResource LocalizedStrings}}" FontSize="{StaticResource PhoneFontSizeMedium}"></TextBlock>
+                                    <TextBox InputScope="Number" Text="{Binding MinutesLimit , Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True}" TabIndex="1" FlowDirection="RightToLeft" />
+                                </StackPanel>
+                                <StackPanel Margin="5 5 0 0" Background="#654321" Visibility="{Binding SMS, Converter={StaticResource HiddenLessZero}}">
+                                    <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Text="{Binding Path=Resources.DataPagesSMS, Source={StaticResource LocalizedStrings}}" ></TextBlock>
+                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                        <TextBlock Foreground="White" HorizontalAlignment="Center" Text="{Binding SMS}" x:Name="SMS" FontSize="{StaticResource PhoneFontSizeExtraLarge}"></TextBlock>
+                                        <TextBlock Foreground="White" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Text="/"></TextBlock>
+                                        <TextBlock Foreground="White" HorizontalAlignment="Center" Text="{Binding SMSTotal}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"></TextBlock>
+                                    </StackPanel>
+                                    <ProgressBar Value="{Binding SMS}" Maximum="{Binding SMSTotal}" >
+                                        <i:Interaction.Behaviors>
+                                            <Behaviors:MultiBindingBehavior Converter="{StaticResource PercentageToColorConverter}" PropertyName="Foreground">
+                                                <Behaviors:MultiBindingItem Value="{Binding SMS}"></Behaviors:MultiBindingItem>
+                                                <Behaviors:MultiBindingItem Value="{Binding SMSTotal}"></Behaviors:MultiBindingItem>
+                                            </Behaviors:MultiBindingBehavior>
+                                        </i:Interaction.Behaviors>
+                                    </ProgressBar>
+                                    <TextBlock  Foreground="White" HorizontalAlignment="Center" Text="{Binding Path=Resources.SmsLimit, Source={StaticResource LocalizedStrings}}" FontSize="{StaticResource PhoneFontSizeMedium}"></TextBlock>
+                                    <TextBox InputScope="Number" Text="{Binding SMSLimit , Mode=TwoWay}" TabIndex="1" FlowDirection="RightToLeft" AcceptsReturn="False" />
+
+                                </StackPanel>
+                                <StackPanel Background="#564541" Margin="5 5 0 0" Visibility="{Binding Gigabytes, Converter={StaticResource HiddenLessZero}}">
+                                    <TextBlock Foreground="White"  HorizontalAlignment="Center" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Text="{Binding Path=Resources.DataPagesGiga, Source={StaticResource LocalizedStrings}}" ></TextBlock>
+                                    <TextBlock Foreground="White"  HorizontalAlignment="Center" Text="{Binding Gigabytes, StringFormat='{}{0} %'}" x:Name="Gigabytes" FontSize="{StaticResource PhoneFontSizeExtraLarge}"></TextBlock>
+                                    <ProgressBar  Value="{Binding Gigabytes}" Maximum="100" >
+                                        <i:Interaction.Behaviors>
+                                            <Behaviors:MultiBindingBehavior Converter="{StaticResource PercentageToColorConverter}" PropertyName="Foreground">
+                                                <Behaviors:MultiBindingItem Value="{Binding Gigabytes}"></Behaviors:MultiBindingItem>
+                                                <Behaviors:MultiBindingItem Value="{StaticResource int100}"></Behaviors:MultiBindingItem>
+                                            </Behaviors:MultiBindingBehavior>
+                                        </i:Interaction.Behaviors>
+                                    </ProgressBar>
+                                    <TextBlock  Foreground="White" HorizontalAlignment="Center" Text="{Binding Path=Resources.GigaLimit, Source={StaticResource LocalizedStrings}}" FontSize="{StaticResource PhoneFontSizeMedium}"></TextBlock>
+                                    <TextBox InputScope="Number"  Text="{Binding GigabytesLimit , Mode=TwoWay}" TabIndex="1" FlowDirection="RightToLeft" />
+                                </StackPanel>
+                                <StackPanel Background="#783169" Margin="5 5 0 0" Visibility="{Binding Credit, Converter={StaticResource HiddenLessZero}}">
+                                    <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Text="{Binding Path=Resources.DataPagesCredit, Source={StaticResource LocalizedStrings}}" ></TextBlock>
+                                    <TextBlock Foreground="White" HorizontalAlignment="Center" Text="{Binding Credit, StringFormat='{}{0} €'}" x:Name="Credit" FontSize="{StaticResource PhoneFontSizeExtraLarge}"></TextBlock>
+                                    <TextBlock Foreground="White" HorizontalAlignment="Center" Text="{Binding Path=Resources.CreditLimit, Source={StaticResource LocalizedStrings}}" FontSize="{StaticResource PhoneFontSizeMedium}"></TextBlock>
+                                    <TextBox InputScope="Number" Text="{Binding CreditLimit, Mode=TwoWay}" TabIndex="1" FlowDirection="RightToLeft" />
+
+                                </StackPanel>
+                                <StackPanel  Background="#FF8400" Margin="5 5 0 0" HorizontalAlignment="Center" Visibility="{Binding ExpirationDate, Converter={StaticResource HiddenLessZero}}" >
+                                    <TextBlock Foreground="White" HorizontalAlignment="Center" Text="{Binding Path=Resources.ExpirationDate, Source={StaticResource LocalizedStrings}}" FontSize="{StaticResource PhoneFontSizeMedium}"></TextBlock>
+                                    <TextBlock Foreground="White" Text="{Binding ExpirationDate, Mode=OneWay,StringFormat='{}{0:dd/MM/yyyy}'}" FlowDirection="RightToLeft" FontSize="{StaticResource PhoneFontSizeExtraLarge}" />
+                                    <ProgressBar Foreground="Green" Value="{Binding ExpirationDate, Converter={StaticResource DateToPercentage}}" Maximum="30" />
+                                </StackPanel>
+                                <StackPanel Background="#017D2F" Margin="5 5 0 0">
+                                    <TextBlock Foreground="White" HorizontalAlignment="Center" Text="{Binding Path=Resources.LastUpdate, Source={StaticResource LocalizedStrings}}" FontSize="{StaticResource PhoneFontSizeMedium}"></TextBlock>
+                                    <TextBlock Foreground="White" TextWrapping="Wrap" Text="{Binding LastUpdate, Mode=OneWay,StringFormat='{}{0:dd/MM/yyyy HH:mm:ss}'}" FlowDirection="RightToLeft" FontSize="{StaticResource PhoneFontSizeLarge}" />
+                                </StackPanel>
+                                <wptookit:HubTile GroupTag="{Binding Number}" x:Name="159" Margin="5 5 0 0" Size="Small" IsFrozen="False" Message="{Binding Path=Resources.TouchToPin, Source={StaticResource LocalizedStrings}}" >
+                                    <i:Interaction.Behaviors>
+                                        <Behaviors:MultiBindingBehavior Converter="{StaticResource ImageConverter}" PropertyName="Source">
+                                            <Behaviors:MultiBindingItem Value="159"></Behaviors:MultiBindingItem>
+                                            <Behaviors:MultiBindingItem Value="159"></Behaviors:MultiBindingItem>
+                                            <Behaviors:MultiBindingItem Value="{Binding Number, Mode=OneTime}"></Behaviors:MultiBindingItem>
+                                        </Behaviors:MultiBindingBehavior>
+                                    </i:Interaction.Behaviors>
+                                    <wptookit:ContextMenuService.ContextMenu>
+                                        <wptookit:ContextMenu>
+                                            <wptookit:MenuItem Header="{Binding Path=Resources.PinMe, Source={StaticResource LocalizedStrings}}" Command="{StaticResource ShellCommand }">
+                                                <i:Interaction.Behaviors>
+                                                    <Behaviors:MultiBindingBehavior Converter="{StaticResource StringJoinConverter}" PropertyName="CommandParameter">
+                                                        <Behaviors:MultiBindingItem Value="159"></Behaviors:MultiBindingItem>
+                                                        <Behaviors:MultiBindingItem Value="159"></Behaviors:MultiBindingItem>
+                                                        <Behaviors:MultiBindingItem Value="{Binding Number, Mode=OneTime}"></Behaviors:MultiBindingItem>
+                                                    </Behaviors:MultiBindingBehavior>
+                                                </i:Interaction.Behaviors>
+                                            </wptookit:MenuItem>
+                                        </wptookit:ContextMenu>
+                                    </wptookit:ContextMenuService.ContextMenu>
+                                </wptookit:HubTile>
+                                <wptookit:HubTile Margin="5 5 0 0" GroupTag="{Binding Number}" x:Name="336" Size="Medium" IsFrozen="False" Message="{Binding Path=Resources.TouchToPin, Source={StaticResource LocalizedStrings}}" >
+                                    <i:Interaction.Behaviors>
+                                        <Behaviors:MultiBindingBehavior Converter="{StaticResource ImageConverter}" PropertyName="Source">
+                                            <Behaviors:MultiBindingItem Value="336"></Behaviors:MultiBindingItem>
+                                            <Behaviors:MultiBindingItem Value="336"></Behaviors:MultiBindingItem>
+                                            <Behaviors:MultiBindingItem Value="{Binding Number, Mode=OneTime}"></Behaviors:MultiBindingItem>
+                                        </Behaviors:MultiBindingBehavior>
+                                    </i:Interaction.Behaviors>
+                                    <wptookit:ContextMenuService.ContextMenu>
+                                        <wptookit:ContextMenu>
+                                            <wptookit:MenuItem Header="pin to start" Command="{StaticResource ShellCommand }">
+                                                <i:Interaction.Behaviors>
+                                                    <Behaviors:MultiBindingBehavior Converter="{StaticResource StringJoinConverter}" PropertyName="CommandParameter">
+                                                        <Behaviors:MultiBindingItem Value="336"/>
+                                                        <Behaviors:MultiBindingItem Value="336"/>
+                                                        <Behaviors:MultiBindingItem Value="{Binding Number, Mode=OneWay}"></Behaviors:MultiBindingItem>
+                                                    </Behaviors:MultiBindingBehavior>
+                                                </i:Interaction.Behaviors>
+                                            </wptookit:MenuItem>
+                                        </wptookit:ContextMenu>
+                                    </wptookit:ContextMenuService.ContextMenu>
+                                </wptookit:HubTile>
+                            </toolkit:WrapPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+
+                                <TextBlock  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="{Binding Path=Resources.EnableNotifications, Source={StaticResource LocalizedStrings}}" FontSize="{StaticResource PhoneFontSizeMedium}"></TextBlock>
+                                <wptookit:ToggleSwitch  Grid.Row="0" Grid.Column="1" IsChecked="{Binding NotifyEnabled, Mode=TwoWay}"></wptookit:ToggleSwitch>
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="{Binding Path=Resources.FriendlyName, Source={StaticResource LocalizedStrings}}" FontSize="{StaticResource PhoneFontSizeMedium}"></TextBlock>
+                                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding FriendlyName, Mode=TwoWay, NotifyOnValidationError=True}" TabIndex="1" FlowDirection="RightToLeft" />
+
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Text="{Binding Path=Resources.TileColor, Source={StaticResource LocalizedStrings}}" FontSize="{StaticResource PhoneFontSizeMedium}"></TextBlock>
+                                <wptookit:ListPicker Grid.Row="2" Grid.Column="1" ItemsSource="{StaticResource AccentColors}" SelectionMode="Single" Loaded="listPickerColor_Loaded" FullModeHeader="{Binding Path=Resources.SelectColor, Source={StaticResource LocalizedStrings}}" Name="listPickerColor" VerticalAlignment="Center">
+                                    <wptookit:ListPicker.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Rectangle Fill="{Binding Path=Value, Converter={StaticResource ColorToBrush}}" Margin="2, 2, 0 0" Width="26" Height="26"/>
+                                                <TextBlock Text="{Binding Path=Key}" Margin="4 0 0 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </wptookit:ListPicker.ItemTemplate>
+                                    <wptookit:ListPicker.FullModeItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Margin="16 21 0 20">
+                                                <Rectangle Fill="{Binding Path=Value, Converter={StaticResource ColorToBrush}}" Margin="2, 2, 0 0" Width="26" Height="26" />
+                                                <TextBlock Text="{Binding Path=Key}" Margin="4 0 0 0" FontSize="43" FontFamily="{StaticResource PhoneFontFamilyLight}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </wptookit:ListPicker.FullModeItemTemplate>
+                                </wptookit:ListPicker>
+                            </Grid>
+                        </StackPanel>
+                    </ScrollViewer>
+                </DataTemplate>
+            </controls:Pivot.ItemTemplate>
+        </controls:Pivot>
+    </Grid>
+
+</phone:PhoneApplicationPage>
+
+
+ 
+ 
