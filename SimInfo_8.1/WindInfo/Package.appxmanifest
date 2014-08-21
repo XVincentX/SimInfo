@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="61099VincenzoChianese.SimInfo" Publisher="CN=D927B6B9-CB32-4146-ABE2-62AEEE7CB96A" />
+  <Identity Name="61099VincenzoChianese.SimInfo" Publisher="CN=D927B6B9-CB32-4146-ABE2-62AEEE7CB96A" Version="1.0.0.27" />
   <mp:PhoneIdentity PhoneProductId="5b647ba8-4366-4c7b-aac6-4afba7402076" PhonePublisherId="902abbe8-ba12-4bcf-9682-0df01f481c6c" />
   <Properties>
     <DisplayName>WindInfo</DisplayName>

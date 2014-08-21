@@ -99,6 +99,7 @@ namespace WindAuth.Code
                         case "531":
                         case "535":
                         case "493":
+                        case "504":
                             number.Gigabytes += (int)remaining;
                             number.GigabytesTotal += initial;
                             break;
@@ -108,6 +109,7 @@ namespace WindAuth.Code
                         case "497":
                         case "489":
                         case "492":
+                        case "503":
                             number.SMS += (int)remaining;
                             number.SMSTotal += (int)initial;
                             break;
@@ -115,6 +117,7 @@ namespace WindAuth.Code
                         case "499":
                         case "488":
                         case "491":
+                        case "502":
                             number.Minutes += (int)remaining / 60;
                             number.MinutesTotal += (int)initial / 60;
                             break;
