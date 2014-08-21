@@ -63,7 +63,12 @@ namespace WindAuth.Code
 
                 }
                 nm.LastUpdate = DateTime.Now;
-                nm.ExpirationDate = counters.Where(x => x.NextResetDate != null).Min(x => DateTime.ParseExact(x.NextResetDate, "dd-MM-yyyy HH:mm", CultureInfo.GetCultureInfo("it-IT")));
+                if (counters.Any(x => x.NextResetDate != null))
+                    nm.ExpirationDate = counters.Where(x => x.NextResetDate != null).Min(x => DateTime.ParseExact(x.NextResetDate, new[] { "dd-MM-yyyy HH:mm", "dd-MM-yyyy" }, CultureInfo.GetCultureInfo("it-IT"), DateTimeStyles.None));
+                else if (objp.CurrentPromos.Any(x => x.Counters != null))
+                    nm.ExpirationDate = DateTime.ParseExact(objp.CurrentPromos.First(x => x.Counters != null).ExpirationDate, new[] { "dd-MM-yyyy HH:mm", "dd-MM-yyyy" }, CultureInfo.GetCultureInfo("it-IT"), DateTimeStyles.None);
+                else
+                    nm.ExpirationDate = DateTime.MaxValue;
                 cr.NumberInfos.Add(nm);
             }
 
