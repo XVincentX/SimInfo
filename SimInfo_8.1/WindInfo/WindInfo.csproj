@@ -211,6 +211,7 @@
     <Compile Include="Code\Converters\StringJoinConverter.cs" />
     <Compile Include="Code\Converters\TypeToImageConverter.cs" />
     <Compile Include="Code\LocalizedStrings.cs" />
+    <Compile Include="Code\PushNotificationManager.cs" />
     <Compile Include="Code\ResolutionHelper.cs" />
     <Compile Include="Code\WPUtils.cs" />
     <Compile Include="DataPage.xaml.cs">
