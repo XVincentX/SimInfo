@@ -58,7 +58,10 @@ namespace WindAuth.Code
                     else if (svar.Contains("WIFI") && !svar.Contains("MOBILE_2013_20"))
                         number.Gigabytes += int.Parse(data.Split(':')[0]);
                     else if (svar.Contains("DATA"))
-                        number.Gigabytes += int.Parse(Regex.Match(data, @"\d+").Value);
+                        if (data.ToUpper().Contains("GB"))
+                            number.Gigabytes += (int)(1000.0f * float.Parse(Regex.Match(data, @"[-+]?(\d*[.])?\d+").Value));
+                        else
+                            number.Gigabytes += int.Parse(Regex.Match(data, @"\d+").Value);
                     else if (svar.Contains("VOICE"))
                         number.Minutes += int.Parse(data.Split(':')[0]);
 
@@ -80,6 +83,15 @@ namespace WindAuth.Code
                 number.SMSTotal = 200;
                 number.MinutesTotal = 200;
                 number.Gigabytes /= 10;
+            }
+            else if (sessionVars.Any(x => x.Id.Contains("MOBILE_2013_27")))
+            {
+                //Pressing
+
+                number.GigabytesTotal = 100;
+                number.SMSTotal = 100;
+                number.MinutesTotal = 200;
+                number.Gigabytes = (int)(100.0f / 2000.0f * (float)number.Gigabytes);
             }
 
             inf.NumberInfos.Add(number);
