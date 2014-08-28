@@ -73,10 +73,10 @@ namespace WindAuth.Code
             var xml = await response.Content.ReadAsStringAsync();
             var xmlDoc = XDocument.Parse(xml);
 
-            if (!xmlDoc.Descendants().Any(x => x.Name.LocalName == "totalCreditAmount"))
-                throw new Exception("Tariffa non supportata. Contatta l'autore per maggiori informazioni");
+            float credit = 0;
+            if (xmlDoc.Descendants().Any(x => x.Name.LocalName == "totalCreditAmount"))
+                credit = float.Parse(xmlDoc.Descendants().First(x => x.Name.LocalName == "totalCreditAmount").Value, CultureInfo.GetCultureInfo("en-US"));
 
-            float credit = float.Parse(xmlDoc.Descendants().First(x => x.Name.LocalName == "totalCreditAmount").Value, CultureInfo.GetCultureInfo("en-US"));
             var number = new NumberInfo { Number = username, LastUpdate = DateTime.Now, Credit = credit, SMS = -1, Gigabytes = -1, Minutes = -1, ExpirationDate = DateTime.MaxValue };
             var UnitsNodes = xmlDoc.XPathSelectElements("//data[key='freetUnits']");
             foreach (var node in UnitsNodes.Descendants().Where(a => a.Attributes().Any(x => x.Name.LocalName == "type" && x.Value == "ns1:FreeUnitItems")))
@@ -100,6 +100,7 @@ namespace WindAuth.Code
                         case "535":
                         case "493":
                         case "504":
+                        case "364":
                             number.Gigabytes += (int)remaining;
                             number.GigabytesTotal += initial;
                             break;
@@ -110,6 +111,7 @@ namespace WindAuth.Code
                         case "489":
                         case "492":
                         case "503":
+                        case "363":
                             number.SMS += (int)remaining;
                             number.SMSTotal += (int)initial;
                             break;
@@ -118,6 +120,7 @@ namespace WindAuth.Code
                         case "488":
                         case "491":
                         case "502":
+                        case "362":
                             number.Minutes += (int)remaining / 60;
                             number.MinutesTotal += (int)initial / 60;
                             break;
