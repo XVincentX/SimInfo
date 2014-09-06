@@ -93,6 +93,15 @@ namespace WindAuth.Code
                 number.MinutesTotal = 200;
                 number.Gigabytes = (int)(100.0f / 2000.0f * (float)number.Gigabytes);
             }
+            else if (sessionVars.Any(x=>x.Id.Contains("MOBILE_2014_10")))
+            {
+                //Happy
+                number.GigabytesTotal = 100;
+                number.SMSTotal = 200;
+                number.MinutesTotal = 260;
+                number.Gigabytes = (int)(100.0f / 1000.0f * (float)number.Gigabytes);
+
+            }
 
             inf.NumberInfos.Add(number);
 
