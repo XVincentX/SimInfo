@@ -331,26 +331,23 @@ namespace WindInfo
 
                 NavigationService.RemoveBackEntry();
 
-                if (NetworkInterface.GetIsNetworkAvailable() && NetworkInterface.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)
+                if (NetworkInterface.GetIsNetworkAvailable())
                 {
-                    await Task.Run(async () =>
+                    using (var http = new HttpClient())
                     {
-                        using (var http = new HttpClient())
+                        var data = http.GetAsync("https://wauth.apphb.com/api/HowManyPayed/" + (App.Current as App).currentInfo.Username);
+
+                        if (CurrentApp.LicenseInformation.ProductLicenses.ContainsKey(IAPs.IAP_PushNotification))
                         {
-                            var data = await http.GetAsync("https://wauth.apphb.com/api/HowManyPayed/" + (App.Current as App).currentInfo.Username);
-                            IEnumerable<int> payed = JsonConvert.DeserializeObject<IEnumerable<int>>(await data.Content.ReadAsStringAsync());
-                            if (payed.Any())
-                                Addins.Save(payed.First());
+                            await WPUtils.UpdateFromCloud();
+                            await WPUtils.PushNotificationSetUp(this).ContinueWith(q => WPUtils.RemoveAgent(UpdateCreditAgent.AgentName), TaskContinuationOptions.OnlyOnRanToCompletion);
+                            Update(false);
                         }
 
+                        IEnumerable<int> payed = JsonConvert.DeserializeObject<IEnumerable<int>>(await (await data).Content.ReadAsStringAsync());
+                        if (payed.Any())
+                            Addins.Save(payed.First());
 
-                    });
-
-                    if (CurrentApp.LicenseInformation.ProductLicenses.ContainsKey(IAPs.IAP_PushNotification))
-                    {
-                        await WPUtils.UpdateFromCloud();
-                        await WPUtils.PushNotificationSetUp(this).ContinueWith(q => WPUtils.RemoveAgent(UpdateCreditAgent.AgentName), TaskContinuationOptions.OnlyOnRanToCompletion);
-                        Update(false);
                     }
 
                 }

@@ -58,7 +58,7 @@
                 <Behaviors:ApplicationBarMenuItem Text="{Binding Resources.MenuBaDisable, Source={StaticResource LocalizedStrings}}" Click="agent_enabledisable"/>
                 <Behaviors:ApplicationBarMenuItem Text="{Binding Resources.MenuAddin, Source={StaticResource LocalizedStrings}}" Click="ApplicationBarMenuItem_Click"/>
                 <Behaviors:ApplicationBarMenuItem Text="{Binding Resources.AddNumber, Source={StaticResource LocalizedStrings}}" Click="GotoNumbers"/>
-                <Behaviors:ApplicationBarMenuItem Text="{Binding Resources.OneDrive, Source={StaticResource LocalizedStrings}}" Click="OneDrive"/>
+                <Behaviors:ApplicationBarMenuItem IsVisible="False" Text="{Binding Resources.OneDrive, Source={StaticResource LocalizedStrings}}" Click="OneDrive"/>
             </Behaviors:ApplicationBarBehavior.MenuItems>
         </Behaviors:ApplicationBarBehavior>
     </i:Interaction.Behaviors>
