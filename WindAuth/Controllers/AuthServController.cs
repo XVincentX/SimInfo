@@ -435,7 +435,7 @@ public class AuthServController : ApiController
                 catch (WrongLoginDataException)
                 {
                     notifications.Add(new MpnsNotification(string.Format(toastTemplate, "Warning", "Dati di login errati.", string.Empty)));
-                    _notificationClient.DeleteRegistrationAsync(user); //Addio. Rientra nell'app e inserisci i dati giusti.
+                    _notificationClient.DeleteRegistrationAsync(user).Wait(); //Addio. Rientra nell'app e inserisci i dati giusti.
                 }
                 catch (Exception)
                 {
