@@ -45,5 +45,7 @@ namespace WindDataLib.Model
         public bool gigaShowed { get; set; }
         [JsonProperty("minshowed")]
         public bool minShowed { get; set; }
+        [JsonProperty("lastupdate")]
+        public DateTime LastUpdate { get; set; }
     }
 }

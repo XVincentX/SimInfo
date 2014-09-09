@@ -407,7 +407,11 @@ public class AuthServController : ApiController
                             }
 
                             if (dirty)
+                            {
+                                dataPreference.LastUpdate = DateTime.Now;
                                 await preferences.UpdateAsync(dataPreference);
+                            }
+                                
 
                         }
 
