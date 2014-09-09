@@ -195,12 +195,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\..\..\Users\Vincenzo\SkyDrive\Documents\Nresume.htm">
-      <Link>Nresume.htm</Link>
-    </Content>
-    <Content Include="..\..\..\..\..\Users\Vincenzo\SkyDrive\Documents\Resume.Markdown.txt">
-      <Link>Resume.Markdown.txt</Link>
-    </Content>
     <Content Include="App_Data\Recoeuro.sdf" />
     <Content Include="Content\ace-skins.min.css" />
     <Content Include="Content\ace.min.css" />
