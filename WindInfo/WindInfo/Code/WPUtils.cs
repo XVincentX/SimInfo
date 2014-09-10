@@ -176,6 +176,7 @@ namespace WindInfo.Code
                         item.Minutes = d.Minutes;
                         item.Gigabytes = d.Gigabytes;
                         item.SMS = d.SMS;
+                        item.LastUpdate = d.LastUpdate;
                     }
 
                 }
