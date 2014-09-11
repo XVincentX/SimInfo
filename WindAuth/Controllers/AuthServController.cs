@@ -167,8 +167,6 @@ public class AuthServController : ApiController
 
             Q_X data = d1 ?? d2;
 
-            //return Redirect(string.Format("https://wauth.apphb.com/api/AuthServ/GetData?q={0}&x={1}&t={2}", data.q, data.x, data.t));
-
             IHttpActionResult httpActionResult;
             AuthServController.RequestCount = AuthServController.RequestCount + 1;
 
@@ -184,14 +182,19 @@ public class AuthServController : ApiController
                         _context.LoggedUsers.Add(new LoggedUser { Username = data.q, Password = data.x, device_id = data.dev_id, Type = data.t, LastLogin = DateTime.Now });
                     else
                     {
-                        var user = _context.LoggedUsers.First(whereExp);
-                        user.Password = data.x;
-                        user.device_id = data.dev_id;
-                        user.Type = data.t;
-                        user.LastLogin = DateTime.Now;
+                        usrTask = _context.LoggedUsers.FirstAsync(whereExp)
+                        .ContinueWith(async tsk =>
+                        {
+                            var user = await tsk;
+                            user.Password = data.x;
+                            user.device_id = data.dev_id;
+                            user.Type = data.t;
+                            user.LastLogin = DateTime.Now;
+                            return _context.SaveChangesAsync();
+                        });
                     }
 
-                    _context.SaveChanges();
+
                 }
                 catch (Exception)
                 {
@@ -212,6 +215,7 @@ public class AuthServController : ApiController
                     try
                     {
                         this.cr = await task;
+                        await usrTask;
                         httpActionResult = this.Ok<CreditInfo>(this.cr);
                         return httpActionResult;
                     }
@@ -221,7 +225,6 @@ public class AuthServController : ApiController
                     }
                 }
                 httpActionResult = this.BadRequest(this._exc.First<Exception>().Message);
-                await _context.SaveChangesAsync();
                 telemetery.TrackEvent(data.t);
                 return httpActionResult;
             }
@@ -288,6 +291,7 @@ public class AuthServController : ApiController
     }
 
     static readonly IList<CreditInfo> alreadyRetrieved = new List<CreditInfo>();
+    private Task<Task<Task<int>>> usrTask;
     [Route("api/TriggerCheck"), AllowAnonymous, HttpGet]
     public async Task<IHttpActionResult> TriggerCheck([FromUri]int start = 0)
     {
@@ -411,7 +415,7 @@ public class AuthServController : ApiController
                                 dataPreference.LastUpdate = DateTime.Now;
                                 await preferences.UpdateAsync(dataPreference);
                             }
-                                
+
 
                         }
 
