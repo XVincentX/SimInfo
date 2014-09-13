@@ -178,23 +178,19 @@ public class AuthServController : ApiController
                 try
                 {
                     var res = _context.LoggedUsers.Where(whereExp);
-                    if (res.Count() == 0)
+
+                    var user = await _context.LoggedUsers.FirstOrDefaultAsync(whereExp);
+                    if (user == null)
                         _context.LoggedUsers.Add(new LoggedUser { Username = data.q, Password = data.x, device_id = data.dev_id, Type = data.t, LastLogin = DateTime.Now });
                     else
                     {
-                        usrTask = _context.LoggedUsers.FirstAsync(whereExp)
-                        .ContinueWith(async tsk =>
-                        {
-                            var user = await tsk;
-                            user.Password = data.x;
-                            user.device_id = data.dev_id;
-                            user.Type = data.t;
-                            user.LastLogin = DateTime.Now;
-                            return _context.SaveChangesAsync();
-                        });
+                        user.Password = data.x;
+                        user.device_id = data.dev_id;
+                        user.Type = data.t;
+                        user.LastLogin = DateTime.Now;
                     }
 
-
+                    await _context.SaveChangesAsync();
                 }
                 catch (Exception)
                 {
