@@ -90,6 +90,10 @@ namespace WindAuth.Code
                     DateTime expiration = DateTime.Parse(dataElem.Elements().First(x => x.Name.LocalName == "endDate").Value, CultureInfo.GetCultureInfo("en-US"));
                     number.ExpirationDate = (expiration > number.ExpirationDate ? number.ExpirationDate : expiration);
 
+#if DEBUG
+                    Debug.WriteLine("{0}-{1}-{2}", el.Elements().First(x => x.Name.LocalName == "key").Value, remaining, initial);
+#endif
+
                     switch (el.Elements().First(x => x.Name.LocalName == "key").Value)
                     {
                         case "384":
@@ -121,6 +125,7 @@ namespace WindAuth.Code
                         case "491":
                         case "502":
                         case "362":
+                        case "496":
                             number.Minutes += (int)remaining / 60;
                             number.MinutesTotal += (int)initial / 60;
                             break;
