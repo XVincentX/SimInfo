@@ -211,7 +211,6 @@ public class AuthServController : ApiController
                     try
                     {
                         this.cr = await task;
-                        await usrTask;
                         httpActionResult = this.Ok<CreditInfo>(this.cr);
                         return httpActionResult;
                     }
@@ -287,7 +286,7 @@ public class AuthServController : ApiController
     }
 
     static readonly IList<CreditInfo> alreadyRetrieved = new List<CreditInfo>();
-    private Task<Task<Task<int>>> usrTask;
+
     [Route("api/TriggerCheck"), AllowAnonymous, HttpGet]
     public async Task<IHttpActionResult> TriggerCheck([FromUri]int start = 0)
     {
