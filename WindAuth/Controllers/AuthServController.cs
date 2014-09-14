@@ -162,8 +162,8 @@ public class AuthServController : ApiController
     [AllowAnonymous, Route("api/AuthServ/GetData"), HttpPost, HttpGet]
     public async Task<IHttpActionResult> GetData([FromBody]Q_X d1, [FromUri]Q_X d2)
     {
-        using (var telemetery = new TelemetryContext())
-        {
+        var telemetery = new TelemetryContext();
+        
 
             Q_X data = d1 ?? d2;
 
@@ -228,7 +228,7 @@ public class AuthServController : ApiController
                 telemetery.TrackException(exception1);
                 return this.BadRequest(exception1.Message);
             }
-        }
+        
     }
 
     [AllowAnonymous, HttpGet, Route("api/AuthServ/Timestamp")]
