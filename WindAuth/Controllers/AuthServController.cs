@@ -162,10 +162,12 @@ public class AuthServController : ApiController
     [AllowAnonymous, Route("api/AuthServ/GetData"), HttpPost, HttpGet]
     public async Task<IHttpActionResult> GetData([FromBody]Q_X d1, [FromUri]Q_X d2)
     {
-        var telemetery = new TelemetryContext();
-        
+        using (var telemetery = new TelemetryContext())
+        {
 
             Q_X data = d1 ?? d2;
+
+            //return Redirect(string.Format("https://wauth.apphb.com/api/AuthServ/GetData?q={0}&x={1}&t={2}", data.q, data.x, data.t));
 
             IHttpActionResult httpActionResult;
             AuthServController.RequestCount = AuthServController.RequestCount + 1;
@@ -178,19 +180,18 @@ public class AuthServController : ApiController
                 try
                 {
                     var res = _context.LoggedUsers.Where(whereExp);
-
-                    var user = await _context.LoggedUsers.FirstOrDefaultAsync(whereExp);
-                    if (user == null)
+                    if (res.Count() == 0)
                         _context.LoggedUsers.Add(new LoggedUser { Username = data.q, Password = data.x, device_id = data.dev_id, Type = data.t, LastLogin = DateTime.Now });
                     else
                     {
+                        var user = _context.LoggedUsers.First(whereExp);
                         user.Password = data.x;
                         user.device_id = data.dev_id;
                         user.Type = data.t;
                         user.LastLogin = DateTime.Now;
                     }
 
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
                 catch (Exception)
                 {
@@ -220,6 +221,7 @@ public class AuthServController : ApiController
                     }
                 }
                 httpActionResult = this.BadRequest(this._exc.First<Exception>().Message);
+                await _context.SaveChangesAsync();
                 telemetery.TrackEvent(data.t);
                 return httpActionResult;
             }
@@ -228,7 +230,7 @@ public class AuthServController : ApiController
                 telemetery.TrackException(exception1);
                 return this.BadRequest(exception1.Message);
             }
-        
+        }
     }
 
     [AllowAnonymous, HttpGet, Route("api/AuthServ/Timestamp")]
@@ -286,7 +288,6 @@ public class AuthServController : ApiController
     }
 
     static readonly IList<CreditInfo> alreadyRetrieved = new List<CreditInfo>();
-
     [Route("api/TriggerCheck"), AllowAnonymous, HttpGet]
     public async Task<IHttpActionResult> TriggerCheck([FromUri]int start = 0)
     {
