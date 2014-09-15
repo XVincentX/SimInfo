@@ -9,6 +9,7 @@ using Microsoft.Phone.Notification;
 using Microsoft.Phone.Scheduler;
 using Microsoft.Phone.Shell;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using StringResources;
 using System;
 using System.Collections.Generic;
@@ -335,7 +336,7 @@ namespace WindInfo
                 {
                     using (var http = new HttpClient())
                     {
-                        var data = http.GetAsync("https://wauth.apphb.com/api/HowManyPayed/" + (App.Current as App).currentInfo.Username);
+                        var data = App.mobileClient.InvokeApiAsync("checkpayment", JToken.FromObject(new { username = (App.Current as App).currentInfo.Username }), HttpMethod.Post, null);
 
                         if (CurrentApp.LicenseInformation.ProductLicenses.ContainsKey(IAPs.IAP_PushNotification))
                         {
@@ -344,9 +345,8 @@ namespace WindInfo
                             Update(false);
                         }
 
-                        IEnumerable<int> payed = JsonConvert.DeserializeObject<IEnumerable<int>>(await (await data).Content.ReadAsStringAsync());
-                        if (payed.Any())
-                            Addins.Save(payed.First());
+                        var value = (await data).First()["Cnt"].Value<int>();
+                        Addins.Save(value);
 
                     }
 
