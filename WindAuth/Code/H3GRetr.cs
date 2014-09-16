@@ -105,6 +105,7 @@ namespace WindAuth.Code
                         case "493":
                         case "504":
                         case "364":
+                        case "507":
                             number.Gigabytes += (int)remaining;
                             number.GigabytesTotal += initial;
                             break;
