@@ -71,10 +71,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\w8\packages\Microsoft.ApplicationInsights.0.10.0-build17704\lib\net40\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ApplicationInsights.RuntimeTelemetry">
+    <Reference Include="Microsoft.ApplicationInsights.RuntimeTelemetry, Version=0.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\w8\packages\Microsoft.ApplicationInsights.RuntimeTelemetry.0.10.0-build17704\lib\net45\Microsoft.ApplicationInsights.RuntimeTelemetry.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ApplicationInsights.Web">
+    <Reference Include="Microsoft.ApplicationInsights.Web, Version=0.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\w8\packages\Microsoft.ApplicationInsights.Web.0.10.0-build17704\lib\net45\Microsoft.ApplicationInsights.Web.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -366,10 +368,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Index.html" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="ApplicationInsights.config" />
     <None Include="Properties\PublishProfiles\AppHarbor.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -437,6 +436,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
