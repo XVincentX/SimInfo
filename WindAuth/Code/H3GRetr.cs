@@ -116,6 +116,7 @@ namespace WindAuth.Code
                         case "492":
                         case "503":
                         case "363":
+                        case "506":
                             number.SMS += (int)remaining;
                             number.SMSTotal += (int)initial;
                             break;
@@ -126,6 +127,7 @@ namespace WindAuth.Code
                         case "502":
                         case "362":
                         case "496":
+                        case "505":
                             number.Minutes += (int)remaining / 60;
                             number.MinutesTotal += (int)initial / 60;
                             break;
