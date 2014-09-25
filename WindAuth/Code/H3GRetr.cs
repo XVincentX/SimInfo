@@ -106,6 +106,7 @@ namespace WindAuth.Code
                         case "504":
                         case "364":
                         case "507":
+                            number.Gigabytes = Math.Max(number.Gigabytes,0);
                             number.Gigabytes += (int)remaining;
                             number.GigabytesTotal += initial;
                             break;
@@ -118,6 +119,7 @@ namespace WindAuth.Code
                         case "503":
                         case "363":
                         case "506":
+                            number.SMS = Math.Max(number.SMS, 0);
                             number.SMS += (int)remaining;
                             number.SMSTotal += (int)initial;
                             break;
@@ -129,6 +131,7 @@ namespace WindAuth.Code
                         case "362":
                         case "496":
                         case "505":
+                            number.Minutes = Math.Max(number.Minutes, 0);
                             number.Minutes += (int)remaining / 60;
                             number.MinutesTotal += (int)initial / 60;
                             break;
