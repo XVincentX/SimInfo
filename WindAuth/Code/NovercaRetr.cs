@@ -63,7 +63,7 @@ namespace WindAuth.Code
                         else
                             number.Gigabytes += int.Parse(Regex.Match(data, @"\d+").Value);
                     else if (svar.Contains("VOICE"))
-                        number.Minutes += int.Parse(data.Split(':')[0]);
+                        number.Minutes += string.IsNullOrEmpty(data) ? 0 : int.Parse(data.Split(':')[0]);
 
                 }
             });
@@ -93,7 +93,7 @@ namespace WindAuth.Code
                 number.MinutesTotal = 200;
                 number.Gigabytes = (int)(100.0f / 2000.0f * (float)number.Gigabytes);
             }
-            else if (sessionVars.Any(x=>x.Id.Contains("MOBILE_2014_10")))
+            else if (sessionVars.Any(x => x.Id.Contains("MOBILE_2014_10")))
             {
                 //Happy
                 number.GigabytesTotal = 100;
