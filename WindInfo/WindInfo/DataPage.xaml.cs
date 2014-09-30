@@ -324,7 +324,7 @@ namespace WindInfo
                 if (NavigationContext.QueryString.ContainsKey("number"))
                 {
                     var number = NavigationContext.QueryString["number"];
-                    if (pivotNumbers.Items.Cast<NumberInfo>().Any(ni => ni.Number == number))
+                    if (pivotNumbers.Items != null && pivotNumbers.Items.Cast<NumberInfo>().Any(ni => ni.Number == number))
                         pivotNumbers.SelectedItem = pivotNumbers.Items.Cast<NumberInfo>().Single(ni => ni.Number == number);
                     else
                         NavigationService.Navigate(new Uri("/MainPage.xaml?FromData=1", UriKind.Relative));
