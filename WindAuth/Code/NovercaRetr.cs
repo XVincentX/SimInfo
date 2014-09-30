@@ -50,18 +50,18 @@ namespace WindAuth.Code
                     var data = await (await httpclient.GetAsync(string.Format(requestUrl, svar))).Content.ReadAsStringAsync();
 
                     if (svar.Contains("Credit"))
-                        number.Credit += float.Parse(data);
+                        number.Credit += string.IsNullOrEmpty(data) ? 0 : float.Parse(data);
                     else if (svar.Contains("ENDDATE"))
                         number.ExpirationDate = DateTime.ParseExact(data, "dd/MM/yyyy", CultureInfo.GetCultureInfo("it-IT"));
                     else if (svar.Contains("SMS"))
-                        number.SMS += int.Parse(data);
+                        number.SMS += string.IsNullOrEmpty(data) ? 0 : int.Parse(data);
                     else if (svar.Contains("WIFI") && !svar.Contains("MOBILE_2013_20"))
-                        number.Gigabytes += int.Parse(data.Split(':')[0]);
+                        number.Gigabytes += string.IsNullOrEmpty(data) ? 0 : int.Parse(data.Split(':')[0]);
                     else if (svar.Contains("DATA"))
                         if (data.ToUpper().Contains("GB"))
-                            number.Gigabytes += (int)(1000.0f * float.Parse(Regex.Match(data, @"[-+]?(\d*[.])?\d+").Value));
+                            number.Gigabytes += string.IsNullOrEmpty(data) ? 0 : (int)(1000.0f * float.Parse(Regex.Match(data, @"[-+]?(\d*[.])?\d+").Value));
                         else
-                            number.Gigabytes += int.Parse(Regex.Match(data, @"\d+").Value);
+                            number.Gigabytes += string.IsNullOrEmpty(data) ? 0 : int.Parse(Regex.Match(data, @"\d+").Value);
                     else if (svar.Contains("VOICE"))
                         number.Minutes += string.IsNullOrEmpty(data) ? 0 : int.Parse(data.Split(':')[0]);
 
