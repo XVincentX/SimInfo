@@ -27,6 +27,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Media;
 using Microsoft.Live;
+using BugSense;
 
 
 namespace WindInfo.Code
@@ -205,13 +206,20 @@ namespace WindInfo.Code
 
         static async Task UploadUri(Uri uri)
         {
+            try
+            {
+                var userList = (App.Current as App).currentInfoArray.Concat(Enumerable.Repeat((App.Current as App).currentInfo, 1));
+                var jsData = userList.Select(x => string.Join("_", x.Username, x.Password, x.Type)).ToArray();
+                var hub = NotificationGet();
+                var registration = await hub.RegisterNativeAsync(uri.ToString(), jsData);
+                WPUtils.RemoveAgent(UpdateCreditAgent.AgentName);
+                SafeDispatcher.Run(() => { new ToastPrompt { Message = "Push notification ok!", Background = new SolidColorBrush(Colors.Green), IsTimerEnabled = true, MillisecondsUntilHidden = 2000 }.Show(); });
+            }
+            catch (Exception ex)
+            {
 
-            var hub = NotificationGet();
-            var userList = (App.Current as App).currentInfoArray.Concat(Enumerable.Repeat((App.Current as App).currentInfo, 1));
-            var jsData = userList.Select(x => string.Join("_", x.Username, x.Password, x.Type)).ToArray();
-            var registration = await hub.RegisterNativeAsync(uri.ToString(), jsData);
-            WPUtils.RemoveAgent(UpdateCreditAgent.AgentName);
-            SafeDispatcher.Run(() => { new ToastPrompt { Message = "Push notification ok!", Background = new SolidColorBrush(Colors.Green), IsTimerEnabled = true, MillisecondsUntilHidden = 2000 }.Show(); });
+                BugSenseHandler.Instance.LogException(ex);
+            }
 
         }
 

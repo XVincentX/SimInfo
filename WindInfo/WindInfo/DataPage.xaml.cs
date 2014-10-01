@@ -432,8 +432,12 @@ namespace WindInfo
                         for (int i = 0; i < pivotNumbers.Items.Count; i++)
                         {
                             var hubtile = FindControl<HubTile>(this.pivotNumbers.ItemContainerGenerator.ContainerFromIndex(i), str);
-                            hubtile.Source = Img.Convert(new[] { str, str, (pivotNumbers.Items[i] as NumberInfo).Number }, null, null, null) as BitmapImage;
-                            hubtile.Source = Img.Convert(new[] { str, str, (pivotNumbers.Items[i] as NumberInfo).Number }, null, null, null) as BitmapImage;
+
+                            if (hubtile != null)
+                            {
+                                hubtile.Source = Img.Convert(new[] { str, str, (pivotNumbers.Items[i] as NumberInfo).Number }, null, null, null) as BitmapImage;
+                                hubtile.Source = Img.Convert(new[] { str, str, (pivotNumbers.Items[i] as NumberInfo).Number }, null, null, null) as BitmapImage;
+                            }
                         }
                     }
 
