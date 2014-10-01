@@ -1,4 +1,5 @@
-﻿using Microsoft.Devices.Sensors;
+﻿using BugSense;
+using Microsoft.Devices.Sensors;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -100,7 +101,17 @@ namespace WindInfo
         public void Start()
         {
             if (_sensor != null)
-                _sensor.Start();
+            {
+                try
+                {
+                    _sensor.Start();
+                }
+                catch (AccelerometerFailedException ex)
+                {
+                    BugSenseHandler.Instance.LogException(ex);
+                }
+            }
+
         }
 
         public void Stop()
