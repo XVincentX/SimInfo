@@ -37,6 +37,9 @@ namespace WindInfo.Code
                 case "N":
                     path = "Assets/Noverca.jpg";
                     break;
+                case "Z":
+                    path = "Assets/tiscali.jpg";
+                    break;
                 default:
                     return null;
             }

@@ -51,6 +51,8 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <ScrollViewer>
                 <StackPanel>
+                    <TextBlock Text="v1.0.0.29" Style="{StaticResource PhoneTextTitle1Style}" Foreground="{StaticResource PhoneAccentBrush}"/>
+                    <TextBlock Text="Added Tiscali operator support.&#10;Generic bugfix"/>
                     <TextBlock Text="v1.0.0.26" Style="{StaticResource PhoneTextTitle1Style}" Foreground="{StaticResource PhoneAccentBrush}"/>
                     <TextBlock Text="Added transparent tile support.&#10;Transparent color will autofollow your preferences."/>
                     <TextBlock Text="v1.0.0.25" Style="{StaticResource PhoneTextTitle1Style}" Foreground="{StaticResource PhoneAccentBrush}"/>

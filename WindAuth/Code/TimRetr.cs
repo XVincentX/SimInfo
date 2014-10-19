@@ -33,7 +33,7 @@ namespace WindAuth.Code
             httpclient.DefaultRequestHeaders.Add("Referer", "file:///Applications/Install/55D00839-D0A9-4CAB-B0F9-94DC75ECD835/Install/");
             var respone = await httpclient.GetAsync("https://camp.tim.it/widgetCamp/login.do");
             var res = await respone.Content.ReadAsStreamAsync();
-
+            var strres = await respone.Content.ReadAsStringAsync();
             WindAuth.Models.LoffTim.Login.RESPONSE r;
             XmlSerializer xs = new XmlSerializer(typeof(WindAuth.Models.LoffTim.Login.RESPONSE));
             r = xs.Deserialize(res) as WindAuth.Models.LoffTim.Login.RESPONSE;
