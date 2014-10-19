@@ -31,7 +31,7 @@ namespace WindAuth.Code
             dynamic logData = new ExpandoObject();
             XmlToDynamic.Parse(logData, xDoc.Elements().First());
 
-            if (!(logData as IDictionary<string, object>).ContainsKey("authentication"))
+            if (!(logData.authentication as IDictionary<string, object>).ContainsKey("keys"))
                 throw new WrongLoginDataException("Username o password errate");
 
             query = HttpUtility.ParseQueryString(string.Empty);
