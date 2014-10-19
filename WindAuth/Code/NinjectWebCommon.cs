@@ -59,6 +59,7 @@ public static class NinjectWebCommon
         kernel.Bind<ICreditInfoRetr>().To<CoopRetr>().WithConstructorArgument("UseProxy", false);
         kernel.Bind<ICreditInfoRetr>().To<H3GRetr>().WithConstructorArgument("UseProxy", false);
         kernel.Bind<ICreditInfoRetr>().To<NovercaRetr>().WithConstructorArgument("UseProxy", false);
+        kernel.Bind<ICreditInfoRetr>().To<TiscaliRetr>().WithConstructorArgument("UseProxy", false);
         kernel.Bind<DataContext>().ToSelf().InRequestScope();
         kernel.Bind<NotificationHubClient>().ToMethod(context => NotificationHubClient.CreateClientFromConnectionString("Endpoint=sb://siminfohub-ns.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=s0lmhoMLMh2Uc3Axii3sU/e/UjVfzAXGNBZ3M6LxsQk=", "siminfohub"));
         kernel.Bind<MobileServiceClient>().ToSelf().InRequestScope().WithConstructorArgument("applicationUrl", "https://siminfo.azure-mobile.net/").WithConstructorArgument("applicationKey", "ymzJInYzOBINEMfCskSfESqhClBeMZ75");

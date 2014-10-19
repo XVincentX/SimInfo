@@ -50,7 +50,8 @@ namespace WindInfo
                 new OperatorType{ Text="Tim", Type="T", Image="Assets/tim.jpg"},
                 new OperatorType{Text="Tre",Type="H", Image="Assets/tre.jpg"},
                 new OperatorType{Text="Noverca",Type="N", Image="Assets/Noverca.jpg"},
-                new OperatorType{Text="Coop",Type="C", Image="Assets/coop.jpg"}
+                new OperatorType{Text="Coop",Type="C", Image="Assets/coop.jpg"},
+                new OperatorType{Text="Tiscali",Type="Z", Image="Assets/tiscali.jpg"}
             };
 
 

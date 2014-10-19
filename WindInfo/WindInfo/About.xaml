@@ -91,7 +91,7 @@
                                     </Image.RenderTransform>
                                 </Image>
                                 <Controls:TileNotification  Background="{StaticResource PhoneAccentBrush}">
-                                    <TextBlock Foreground="White" Text="27.000+ downlds!"></TextBlock>
+                                    <TextBlock Foreground="White" Text="31.000+ downlds!"></TextBlock>
                                 </Controls:TileNotification>
                             </Grid>
                         </Controls:Tile>
