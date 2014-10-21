@@ -15,7 +15,7 @@ namespace WindAuth.Data
             LastLogin = DateTime.Now;
         }
 
-        [Key, StringLength(20)]
+        [Key, StringLength(30)]
         public string Username { get; set; }
         [StringLength(20)]
         public string Password { get; set; }

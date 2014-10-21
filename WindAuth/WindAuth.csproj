@@ -282,6 +282,10 @@
     <Compile Include="Code\PosteRetr.cs" />
     <Compile Include="Code\TiscaliRetr.cs" />
     <Compile Include="Code\XmlToDynamic.cs" />
+    <Compile Include="Migrations\201410211733516_EnlargeUsername.cs" />
+    <Compile Include="Migrations\201410211733516_EnlargeUsername.Designer.cs">
+      <DependentUpon>201410211733516_EnlargeUsername.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Code\CoopRetr.cs" />
     <Compile Include="Code\H3GRetr.cs" />
@@ -403,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201404052219311_PrimaryKeyChange.resx">
       <DependentUpon>201404052219311_PrimaryKeyChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410211733516_EnlargeUsername.resx">
+      <DependentUpon>201410211733516_EnlargeUsername.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PushTemplates.resx">
       <Generator>ResXFileCodeGenerator</Generator>
