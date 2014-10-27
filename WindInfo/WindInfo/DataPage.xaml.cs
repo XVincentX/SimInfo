@@ -346,7 +346,7 @@ namespace WindInfo
                         }
 
                         var value = (await data).First()["Cnt"].Value<int>();
-                        Addins.Save(value);
+                        Addins.Save(1 + value);
 
                     }
 

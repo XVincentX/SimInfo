@@ -108,7 +108,7 @@
     </Reference>
     <Reference Include="JeffWilcox.PhoneThemeManager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\PhoneThemeManager.2.1.1\lib\windowsphone8\JeffWilcox.PhoneThemeManager.dll</HintPath>
+      <HintPath>..\packages\PhoneThemeManager.2.1.2\lib\windowsphone8\JeffWilcox.PhoneThemeManager.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Live">
       <HintPath>..\packages\LiveSDK.5.6\lib\WindowsPhone8\Microsoft.Live.dll</HintPath>
@@ -138,19 +138,19 @@
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\WindowsAzure.MobileServices.1.2.4\lib\wp8\Microsoft.WindowsAzure.Mobile.dll</HintPath>
+      <HintPath>..\packages\WindowsAzure.MobileServices.1.2.5\lib\wp8\Microsoft.WindowsAzure.Mobile.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile.Ext, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\WindowsAzure.MobileServices.1.2.4\lib\wp8\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
+      <HintPath>..\packages\WindowsAzure.MobileServices.1.2.5\lib\wp8\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile.UI, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\WindowsAzure.MobileServices.1.2.4\lib\wp8\Microsoft.WindowsAzure.Mobile.UI.dll</HintPath>
+      <HintPath>..\packages\WindowsAzure.MobileServices.1.2.5\lib\wp8\Microsoft.WindowsAzure.Mobile.UI.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PayPal.Checkout.SDK-WindowsPhone8">
       <HintPath>..\packages\PayPalWindows8PhoneSDK.1.0.0\lib\windowsphone8\PayPal.Checkout.SDK-WindowsPhone8.dll</HintPath>
