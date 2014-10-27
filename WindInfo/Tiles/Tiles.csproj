@@ -93,14 +93,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="159_159.xaml.cs">
-      <DependentUpon>159_159.xaml</DependentUpon>
-    </Compile>
     <Compile Include="336_336.xaml.cs">
       <DependentUpon>336_336.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="691_336.xaml.cs">
-      <DependentUpon>691_336.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\BoolToColorConverter.cs" />
     <Compile Include="Converters\HiddenLessZero.cs" />
@@ -133,10 +127,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="159_159.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="336_336.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,16 +137,6 @@
       <Project>{7EC3DEC4-C69E-4E47-961E-3B45C100D23E}</Project>
       <Name>WindDataLib</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="691_336.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
