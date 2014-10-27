@@ -260,9 +260,6 @@
     <Compile Include="..\w8\Tiles\336_336.xaml.cs">
       <Link>XAML\336_336.xaml.cs</Link>
     </Compile>
-    <Compile Include="..\w8\Tiles\691_336.xaml.cs">
-      <Link>XAML\691_336.xaml.cs</Link>
-    </Compile>
     <Compile Include="..\w8\Tiles\Converters\BoolToColorConverter.cs">
       <Link>XAML\BoolToColorConverter.cs</Link>
     </Compile>
@@ -433,16 +430,6 @@
     </Page>
     <Page Include="..\w8\Tiles\336_336.xaml">
       <Link>XAML\336_336.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="..\w8\Tiles\691_336.xaml">
-      <Link>XAML\691_336.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="..\w8\Tiles\Resources.xaml">
-      <Link>XAML\Resources.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
