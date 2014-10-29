@@ -13,7 +13,7 @@ public static class XamlRendering
 
     public static void ConvertToJpg(NumberInfo context)
     {
-        foreach (var oCanvas in new Control[] { new _159_159(), new _336_336(), new _691_336() })
+        foreach (var oCanvas in new Control[] { new _159_159(), new _336_336() })
         {
             oCanvas.DataContext = context;
 
