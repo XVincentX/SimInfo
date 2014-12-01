@@ -8,7 +8,7 @@
   <AppExtra xmlns="" AppPlatformVersion="8.0">
     <Extra Name="Tiles" />
   </AppExtra>
-  <App xmlns="" ProductID="{5b647ba8-4366-4c7b-aac6-4afba7402076}" Title="SimInfo" RuntimeType="Silverlight" Version="1.0.0.31" Genre="apps.normal" Author="Vincenzo Chianese" Description="Get info from your carrier account account, for free!" Publisher="Vincenzo Chianese" BitsPerPixel="16" PublisherID="{902abbe8-ba12-4bcf-9682-0df01f481c6c}">
+  <App xmlns="" ProductID="{5b647ba8-4366-4c7b-aac6-4afba7402076}" Title="SimInfo" RuntimeType="Silverlight" Version="1.0.0.32" Genre="apps.normal" Author="Vincenzo Chianese" Description="Get info from your carrier account account, for free!" Publisher="Vincenzo Chianese" BitsPerPixel="16" PublisherID="{902abbe8-ba12-4bcf-9682-0df01f481c6c}">
     <IconPath IsRelative="true" IsResource="false">LogoAlpha.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />

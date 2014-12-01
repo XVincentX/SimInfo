@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StringResources
-{
+namespace StringResources {
     using System;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23,962 +22,797 @@ namespace StringResources
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class AppResources
-    {
-
+    public class AppResources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public AppResources()
-        {
+        public AppResources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("StringResources.AppResources", typeof(AppResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        public static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to You will be now redirected to the Windows Store to complete the purchase. If something goes wrong, just stay calm and contact back the author. You will receive all needed support to complete the transaction..
         /// </summary>
-        public static string AddinRedirect
-        {
-            get
-            {
+        public static string AddinRedirect {
+            get {
                 return ResourceManager.GetString("AddinRedirect", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to go to list number.
         /// </summary>
-        public static string AddNumber
-        {
-            get
-            {
+        public static string AddNumber {
+            get {
                 return ResourceManager.GetString("AddNumber", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Background agent disabled.
         /// </summary>
-        public static string BADisabled
-        {
-            get
-            {
+        public static string BADisabled {
+            get {
                 return ResourceManager.GetString("BADisabled", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Background agent enabled.
         /// </summary>
-        public static string BAEnabled
-        {
-            get
-            {
+        public static string BAEnabled {
+            get {
                 return ResourceManager.GetString("BAEnabled", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Did you know you can now add other logins into the application? Just tap to the addin section and let&apos;s begin!.
         /// </summary>
-        public static string BuyAddin
-        {
-            get
-            {
+        public static string BuyAddin {
+            get {
                 return ResourceManager.GetString("BuyAddin", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Auth rejected!.
         /// </summary>
-        public static string CloudReject
-        {
-            get
-            {
+        public static string CloudReject {
+            get {
                 return ResourceManager.GetString("CloudReject", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Login data saved in the cloud.
         /// </summary>
-        public static string CloudSaved
-        {
-            get
-            {
+        public static string CloudSaved {
+            get {
                 return ResourceManager.GetString("CloudSaved", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Contact me!.
         /// </summary>
-        public static string ContactMe
-        {
-            get
-            {
+        public static string ContactMe {
+            get {
                 return ResourceManager.GetString("ContactMe", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Credit limit.
         /// </summary>
-        public static string CreditLimit
-        {
-            get
-            {
+        public static string CreditLimit {
+            get {
                 return ResourceManager.GetString("CreditLimit", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to {0}: Credit under the set limit.
         /// </summary>
-        public static string CreditLimitReached
-        {
-            get
-            {
+        public static string CreditLimitReached {
+            get {
                 return ResourceManager.GetString("CreditLimitReached", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Residual credit:.
         /// </summary>
-        public static string DataPagesCredit
-        {
-            get
-            {
+        public static string DataPagesCredit {
+            get {
                 return ResourceManager.GetString("DataPagesCredit", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Residual data:.
         /// </summary>
-        public static string DataPagesGiga
-        {
-            get
-            {
+        public static string DataPagesGiga {
+            get {
                 return ResourceManager.GetString("DataPagesGiga", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Residual minutes:.
         /// </summary>
-        public static string DataPagesMinutes
-        {
-            get
-            {
+        public static string DataPagesMinutes {
+            get {
                 return ResourceManager.GetString("DataPagesMinutes", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Residual SMS:.
         /// </summary>
-        public static string DataPagesSMS
-        {
-            get
-            {
+        public static string DataPagesSMS {
+            get {
                 return ResourceManager.GetString("DataPagesSMS", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Login data have been deleted.
         /// </summary>
-        public static string DeletedLoginData
-        {
-            get
-            {
+        public static string DeletedLoginData {
+            get {
                 return ResourceManager.GetString("DeletedLoginData", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Donate!.
         /// </summary>
-        public static string Donate
-        {
-            get
-            {
+        public static string Donate {
+            get {
                 return ResourceManager.GetString("Donate", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Donation cancelled :(.
         /// </summary>
-        public static string DonateCancel
-        {
-            get
-            {
+        public static string DonateCancel {
+            get {
                 return ResourceManager.GetString("DonateCancel", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to There was an error during payment process: {0}.
         /// </summary>
-        public static string DonateError
-        {
-            get
-            {
+        public static string DonateError {
+            get {
                 return ResourceManager.GetString("DonateError", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Do you know that this app is serving over 12000 persons and it&apos;s very, VERY hard to manage them all?
         ///Why do not you contribute to the app throught a simple donation?.
         /// </summary>
-        public static string DonateExtendend
-        {
-            get
-            {
+        public static string DonateExtendend {
+            get {
                 return ResourceManager.GetString("DonateExtendend", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Donation value:.
         /// </summary>
-        public static string DonateImportMessage
-        {
-            get
-            {
+        public static string DonateImportMessage {
+            get {
                 return ResourceManager.GetString("DonateImportMessage", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Like this app? Pay me a beer!.
         /// </summary>
-        public static string DonateMessage
-        {
-            get
-            {
+        public static string DonateMessage {
+            get {
                 return ResourceManager.GetString("DonateMessage", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Your payment succeded, thank you. .
         /// </summary>
-        public static string DonateSuccess
-        {
-            get
-            {
+        public static string DonateSuccess {
+            get {
                 return ResourceManager.GetString("DonateSuccess", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Login and data download....
         /// </summary>
-        public static string DownloadingData
-        {
-            get
-            {
+        public static string DownloadingData {
+            get {
                 return ResourceManager.GetString("DownloadingData", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Enable toast notification.
         /// </summary>
-        public static string EnableNotifications
-        {
-            get
-            {
+        public static string EnableNotifications {
+            get {
                 return ResourceManager.GetString("EnableNotifications", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Wrong username or/and password.
         /// </summary>
-        public static string ErrorConnection
-        {
-            get
-            {
+        public static string ErrorConnection {
+            get {
                 return ResourceManager.GetString("ErrorConnection", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Expiration date:.
         /// </summary>
-        public static string ExpirationDate
-        {
-            get
-            {
+        public static string ExpirationDate {
+            get {
                 return ResourceManager.GetString("ExpirationDate", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Name:.
         /// </summary>
-        public static string FriendlyName
-        {
-            get
-            {
+        public static string FriendlyName {
+            get {
                 return ResourceManager.GetString("FriendlyName", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Warning.
         /// </summary>
-        public static string GenericLimit
-        {
-            get
-            {
+        public static string GenericLimit {
+            get {
                 return ResourceManager.GetString("GenericLimit", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to How do I get a login?.
         /// </summary>
-        public static string GetAccount
-        {
-            get
-            {
+        public static string GetAccount {
+            get {
                 return ResourceManager.GetString("GetAccount", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Other problems.
         /// </summary>
-        public static string GetOther
-        {
-            get
-            {
+        public static string GetOther {
+            get {
                 return ResourceManager.GetString("GetOther", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to I lost my password!.
         /// </summary>
-        public static string GetPassword
-        {
-            get
-            {
+        public static string GetPassword {
+            get {
                 return ResourceManager.GetString("GetPassword", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Traffic limit.
         /// </summary>
-        public static string GigaLimit
-        {
-            get
-            {
+        public static string GigaLimit {
+            get {
                 return ResourceManager.GetString("GigaLimit", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Invalid traffic limit.
         /// </summary>
-        public static string GigaLimitNotValid
-        {
-            get
-            {
+        public static string GigaLimitNotValid {
+            get {
                 return ResourceManager.GetString("GigaLimitNotValid", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Last update.
         /// </summary>
-        public static string LastUpdate
-        {
-            get
-            {
+        public static string LastUpdate {
+            get {
                 return ResourceManager.GetString("LastUpdate", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to logout? All pinned tiles will be removed.
         /// </summary>
-        public static string LogoutMessage
-        {
-            get
-            {
+        public static string LogoutMessage {
+            get {
                 return ResourceManager.GetString("LogoutMessage", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Logout confirmation.
         /// </summary>
-        public static string LogoutTitle
-        {
-            get
-            {
+        public static string LogoutTitle {
+            get {
                 return ResourceManager.GetString("LogoutTitle", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Comments on WindInfo app.
         /// </summary>
-        public static string MailSubject
-        {
-            get
-            {
+        public static string MailSubject {
+            get {
                 return ResourceManager.GetString("MailSubject", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Insert login credentials for your carrier account.
         /// </summary>
-        public static string MainPageLogin
-        {
-            get
-            {
+        public static string MainPageLogin {
+            get {
                 return ResourceManager.GetString("MainPageLogin", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to purchase addin.
         /// </summary>
-        public static string MenuAddin
-        {
-            get
-            {
+        public static string MenuAddin {
+            get {
                 return ResourceManager.GetString("MenuAddin", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to enable/disable autoupdate.
         /// </summary>
-        public static string MenuBaDisable
-        {
-            get
-            {
+        public static string MenuBaDisable {
+            get {
                 return ResourceManager.GetString("MenuBaDisable", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Lockscreen settings.
         /// </summary>
-        public static string MenuLockScreen
-        {
-            get
-            {
+        public static string MenuLockScreen {
+            get {
                 return ResourceManager.GetString("MenuLockScreen", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Hello, i&apos;m getting the following issue when using SimInfo:.
         /// </summary>
-        public static string MessageMailError
-        {
-            get
-            {
+        public static string MessageMailError {
+            get {
                 return ResourceManager.GetString("MessageMailError", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Minutes limit.
         /// </summary>
-        public static string MinuteLimit
-        {
-            get
-            {
+        public static string MinuteLimit {
+            get {
                 return ResourceManager.GetString("MinuteLimit", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to {0}: Minutes under set limit.
         /// </summary>
-        public static string MinutesLimitReached
-        {
-            get
-            {
+        public static string MinutesLimitReached {
+            get {
                 return ResourceManager.GetString("MinutesLimitReached", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Cannot sent a void problem!.
         /// </summary>
-        public static string MissingText
-        {
-            get
-            {
+        public static string MissingText {
+            get {
                 return ResourceManager.GetString("MissingText", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Your slots for numbers are over. You have to delete a number or make a visit to the addin section..
         /// </summary>
-        public static string NoAviableNumbersMessage
-        {
-            get
-            {
+        public static string NoAviableNumbersMessage {
+            get {
                 return ResourceManager.GetString("NoAviableNumbersMessage", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Number slots are over.
         /// </summary>
-        public static string NoAviableNumbersTitle
-        {
-            get
-            {
+        public static string NoAviableNumbersTitle {
+            get {
                 return ResourceManager.GetString("NoAviableNumbersTitle", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to It&apos;s not working!.
         /// </summary>
-        public static string NotWorking
-        {
-            get
-            {
+        public static string NotWorking {
+            get {
                 return ResourceManager.GetString("NotWorking", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to If you have problems in log in into system, try at first to make a sofware reset pressing this button. If not working, please send me an email and i will contact you back to solve your problem..
         /// </summary>
-        public static string NotWorkingMessage
-        {
-            get
-            {
+        public static string NotWorkingMessage {
+            get {
                 return ResourceManager.GetString("NotWorkingMessage", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Associated numbers:.
         /// </summary>
-        public static string NumberCount
-        {
-            get
-            {
+        public static string NumberCount {
+            get {
                 return ResourceManager.GetString("NumberCount", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Enable OneDrive integration.
         /// </summary>
-        public static string OneDrive
-        {
-            get
-            {
+        public static string OneDrive {
+            get {
                 return ResourceManager.GetString("OneDrive", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to PayPal Auth: {0}.
         /// </summary>
-        public static string PayPalAuth
-        {
-            get
-            {
+        public static string PayPalAuth {
+            get {
                 return ResourceManager.GetString("PayPalAuth", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Attempt to connect to Paypal....
         /// </summary>
-        public static string PaypalLoading
-        {
-            get
-            {
+        public static string PaypalLoading {
+            get {
                 return ResourceManager.GetString("PaypalLoading", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to pin to start.
         /// </summary>
-        public static string PinMe
-        {
-            get
-            {
+        public static string PinMe {
+            get {
                 return ResourceManager.GetString("PinMe", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Would you like to leave a commet on the store?.
         /// </summary>
-        public static string PleaseRateApp
-        {
-            get
-            {
+        public static string PleaseRateApp {
+            get {
                 return ResourceManager.GetString("PleaseRateApp", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Rate this app!.
         /// </summary>
-        public static string PleaseRateAppTitle
-        {
-            get
-            {
+        public static string PleaseRateAppTitle {
+            get {
                 return ResourceManager.GetString("PleaseRateAppTitle", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Problems?.
         /// </summary>
-        public static string Problems
-        {
-            get
-            {
+        public static string Problems {
+            get {
                 return ResourceManager.GetString("Problems", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Purchase completed. Press back button.
         /// </summary>
-        public static string PurchaseComplete
-        {
-            get
-            {
+        public static string PurchaseComplete {
+            get {
                 return ResourceManager.GetString("PurchaseComplete", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to In this update the strongly requested addin for push notification has been implemented. What am I talking about? It&apos;s a different manner to retrieve your credit data that is faster, safer, more ofter than the usual 30 minutes and extremely more power efficient. Would you like to try it? Jump to the addin page!.
         /// </summary>
-        public static string PushAddin
-        {
-            get
-            {
+        public static string PushAddin {
+            get {
                 return ResourceManager.GetString("PushAddin", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Connecting to push server....
         /// </summary>
-        public static string PushConnect
-        {
-            get
-            {
+        public static string PushConnect {
+            get {
                 return ResourceManager.GetString("PushConnect", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Connected to push notificatin service.
         /// </summary>
-        public static string PushConnected
-        {
-            get
-            {
+        public static string PushConnected {
+            get {
                 return ResourceManager.GetString("PushConnected", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request sent!.
+        /// </summary>
+        public static string RequestSent {
+            get {
+                return ResourceManager.GetString("RequestSent", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to An internet connection is required to use this app.
         /// </summary>
-        public static string RequiredInternet
-        {
-            get
-            {
+        public static string RequiredInternet {
+            get {
                 return ResourceManager.GetString("RequiredInternet", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
-        public static string Save
-        {
-            get
-            {
+        public static string Save {
+            get {
                 return ResourceManager.GetString("Save", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Settings saved for current number.
         /// </summary>
-        public static string Saved
-        {
-            get
-            {
+        public static string Saved {
+            get {
                 return ResourceManager.GetString("Saved", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Select tile color.
         /// </summary>
-        public static string SelectColor
-        {
-            get
-            {
+        public static string SelectColor {
+            get {
                 return ResourceManager.GetString("SelectColor", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to SMS Limit.
         /// </summary>
-        public static string SmsLimit
-        {
-            get
-            {
+        public static string SmsLimit {
+            get {
                 return ResourceManager.GetString("SmsLimit", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to {0}: SMS under set limit!.
         /// </summary>
-        public static string SMSLimitReached
-        {
-            get
-            {
+        public static string SMSLimitReached {
+            get {
                 return ResourceManager.GetString("SMSLimitReached", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to This task periodically updateds your data.
         /// </summary>
-        public static string TaskDescription
-        {
-            get
-            {
+        public static string TaskDescription {
+            get {
                 return ResourceManager.GetString("TaskDescription", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to In order to get an account you have to register on website of your carrier operator (Vodafone, Tim, Tre).
         /// </summary>
-        public static string TextAccount
-        {
-            get
-            {
+        public static string TextAccount {
+            get {
                 return ResourceManager.GetString("TextAccount", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to If you have got other problem not listed into faqs, write it here and click send, i will get in touch with you back!.
+        ///   Looks up a localized string similar to If you have got other problem not listed into faqs, write it here and click send, i will get in touch with you back (please do not forget an email address and the username that is not working)!.
         /// </summary>
-        public static string TextOther
-        {
-            get
-            {
+        public static string TextOther {
+            get {
                 return ResourceManager.GetString("TextOther", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to To recover your password you have to make a reset procedure on your carrier website..
         /// </summary>
-        public static string TextPassword
-        {
-            get
-            {
+        public static string TextPassword {
+            get {
                 return ResourceManager.GetString("TextPassword", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to I have to thank all the people that, even if not developing the code itself, have listened, have tested, have commented, have followed. Thank you..
         /// </summary>
-        public static string ThankYou
-        {
-            get
-            {
+        public static string ThankYou {
+            get {
                 return ResourceManager.GetString("ThankYou", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to This tile is already pinned to start.
         /// </summary>
-        public static string TileAlreadyPinned
-        {
-            get
-            {
+        public static string TileAlreadyPinned {
+            get {
                 return ResourceManager.GetString("TileAlreadyPinned", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Tile color.
         /// </summary>
-        public static string TileColor
-        {
-            get
-            {
+        public static string TileColor {
+            get {
                 return ResourceManager.GetString("TileColor", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to I am not able to log in!.
         /// </summary>
-        public static string TitleMailError
-        {
-            get
-            {
+        public static string TitleMailError {
+            get {
                 return ResourceManager.GetString("TitleMailError", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to pin to Start.
         /// </summary>
-        public static string TouchToPin
-        {
-            get
-            {
+        public static string TouchToPin {
+            get {
                 return ResourceManager.GetString("TouchToPin", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to {0}: Internet data under set limit.
         /// </summary>
-        public static string TrafficLimitReached
-        {
-            get
-            {
+        public static string TrafficLimitReached {
+            get {
                 return ResourceManager.GetString("TrafficLimitReached", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Troubleshot.
         /// </summary>
-        public static string TroubleShotting
-        {
-            get
-            {
+        public static string TroubleShotting {
+            get {
                 return ResourceManager.GetString("TroubleShotting", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to There is an update for this app. Would you like to download it?.
         /// </summary>
-        public static string UpdateMessage
-        {
-            get
-            {
+        public static string UpdateMessage {
+            get {
                 return ResourceManager.GetString("UpdateMessage", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Updating account {0}.
         /// </summary>
-        public static string UpdateSingleNumber
-        {
-            get
-            {
+        public static string UpdateSingleNumber {
+            get {
                 return ResourceManager.GetString("UpdateSingleNumber", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Update avaiable.
         /// </summary>
-        public static string UpdateTitle
-        {
-            get
-            {
+        public static string UpdateTitle {
+            get {
                 return ResourceManager.GetString("UpdateTitle", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Visit the website.
         /// </summary>
-        public static string VisitWebSite
-        {
-            get
-            {
+        public static string VisitWebSite {
+            get {
                 return ResourceManager.GetString("VisitWebSite", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Ooops! Looks like something is going wrong with your credit status. You will be now redirected to support page!.
         /// </summary>
-        public static string Whoops
-        {
-            get
-            {
+        public static string Whoops {
+            get {
                 return ResourceManager.GetString("Whoops", resourceCulture);
             }
         }

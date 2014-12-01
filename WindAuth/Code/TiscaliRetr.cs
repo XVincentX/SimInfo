@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -76,7 +77,7 @@ namespace WindAuth.Code
             CreditInfo cr = new CreditInfo() { Username = username, Password = password, Type = type };
             cr.NumberInfos = new System.Collections.ObjectModel.ObservableCollection<NumberInfo>();
 
-            var ni = new NumberInfo { Number = msisdn, Credit = float.Parse(logData.result.data.CreditAmount), ExpirationDate = DateTime.Parse(logData.result.data.BundleList.Bundle.PeriodEndDate), LastUpdate = DateTime.Now };
+            var ni = new NumberInfo { Number = msisdn, Credit = float.Parse(logData.result.data.CreditAmount), ExpirationDate = DateTime.ParseExact(logData.result.data.BundleList.Bundle.PeriodEndDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("it-IT")), LastUpdate = DateTime.Now };
 
 
             foreach (dynamic bundle in logData.result.data.BundleList.Bundle.BundleElement)

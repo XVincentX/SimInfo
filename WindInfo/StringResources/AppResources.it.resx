@@ -348,7 +348,7 @@ In breve tempo vi sarà anche il supporto per login con account multipli!</value
     <value>Per ottenere un account con il quale effettuare il login devi effettuare la registrazione sul sito web del tuo operatore (Wind, Tre, Vodafone o chi esso sia)</value>
   </data>
   <data name="TextOther" xml:space="preserve">
-    <value>Se hai un problema differente, prova a effettuare un reset del software cliccando sul bottone. Se non dovesse funzinare, torna qui, scrivi il problema qui sotto e premi il tasto invia: ti ricontatterò al più presto</value>
+    <value>Se hai un problema differente, prova a effettuare un reset del software cliccando sul bottone. Se non dovesse comunque funzionare torna qui, scrivi il problema qui sotto e premi il tasto invia: ti ricontatterò al più presto. Non dimenticare di inserire un riferimento (un indirizzo email va benissimo) e l'username sul quale stai avendo il problema.</value>
   </data>
   <data name="TextPassword" xml:space="preserve">
     <value>Per effettuare il reset della password è necessario effettuare la procedura di recupero sul sito web del tuo operatore</value>
@@ -373,5 +373,8 @@ Le notifiche push sono una alternativa ai background agent che aggiornano il cre
   </data>
   <data name="CloudSaved" xml:space="preserve">
     <value>Dati di accesso salvati su Onedrive!</value>
+  </data>
+  <data name="RequestSent" xml:space="preserve">
+    <value>Richiesta inviata!</value>
   </data>
 </root>
