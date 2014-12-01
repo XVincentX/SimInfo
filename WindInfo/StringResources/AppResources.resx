@@ -344,7 +344,7 @@ Why do not you contribute to the app throught a simple donation?</value>
     <value>In order to get an account you have to register on website of your carrier operator (Vodafone, Tim, Tre)</value>
   </data>
   <data name="TextOther" xml:space="preserve">
-    <value>If you have got other problem not listed into faqs, write it here and click send, i will get in touch with you back!</value>
+    <value>If you have got other problem not listed into faqs, write it here and click send, i will get in touch with you back (please do not forget an email address and the username that is not working)!</value>
   </data>
   <data name="TextPassword" xml:space="preserve">
     <value>To recover your password you have to make a reset procedure on your carrier website.</value>
@@ -366,5 +366,8 @@ Why do not you contribute to the app throught a simple donation?</value>
   </data>
   <data name="CloudSaved" xml:space="preserve">
     <value>Login data saved in the cloud</value>
+  </data>
+  <data name="RequestSent" xml:space="preserve">
+    <value>Request sent!</value>
   </data>
 </root>

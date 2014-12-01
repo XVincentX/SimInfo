@@ -51,6 +51,8 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <ScrollViewer>
                 <StackPanel>
+                    <TextBlock Text="v1.0.0.32" Style="{StaticResource PhoneTextTitle1Style}" Foreground="{StaticResource PhoneAccentBrush}"/>
+                    <TextBlock Text="Added new support way."/>
                     <TextBlock Text="v1.0.0.29" Style="{StaticResource PhoneTextTitle1Style}" Foreground="{StaticResource PhoneAccentBrush}"/>
                     <TextBlock Text="Added Tiscali operator support.&#10;Generic bugfix"/>
                     <TextBlock Text="v1.0.0.26" Style="{StaticResource PhoneTextTitle1Style}" Foreground="{StaticResource PhoneAccentBrush}"/>
