@@ -28,7 +28,6 @@ namespace WindDataLib.Implementations
             {
                 httpclient.DefaultRequestHeaders.ExpectContinue = false;
                 httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/bson"));
-                //using (var httpstrAuthJson = await httpclient.GetAsync(string.Format("https://wauth.apphb.com/api/AuthServ/Data/?q={0}&x={1}", username, password)))
                 using (var httpstrAuthJson = await httpclient.PostAsync("https://wauth.apphb.com/api/AuthServ/GetData", new StringContent(JsonConvert.SerializeObject(new { q = username, x = password, t = Type, dev_id = dev_id }), Encoding.UTF8, "application/json")))
                 {
                     using (var strData = await httpstrAuthJson.Content.ReadAsStreamAsync())
