@@ -318,6 +318,7 @@
     <Content Include="Assets\AppBar\save.png" />
     <Content Include="Assets\AppBar\stop.png" />
     <Content Include="Assets\coop.jpg" />
+    <Content Include="Assets\fastweb.jpg" />
     <Content Include="Assets\fb.png" />
     <Content Include="Assets\in.jpg" />
     <Content Include="Assets\mejan.jpg" />

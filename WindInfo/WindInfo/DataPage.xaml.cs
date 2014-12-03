@@ -332,7 +332,7 @@ namespace WindInfo
 
                 NavigationService.RemoveBackEntry();
 
-                if (NetworkInterface.GetIsNetworkAvailable())
+                if (NetworkInterface.GetIsNetworkAvailable() && NavigationContext.QueryString.ContainsKey("paymentCheck"))
                 {
                     using (var http = new HttpClient())
                     {

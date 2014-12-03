@@ -51,7 +51,8 @@ namespace WindInfo
                 new OperatorType{Text="Tre",Type="H", Image="Assets/tre.jpg"},
                 new OperatorType{Text="Noverca",Type="N", Image="Assets/Noverca.jpg"},
                 new OperatorType{Text="Coop",Type="C", Image="Assets/coop.jpg"},
-                new OperatorType{Text="Tiscali",Type="Z", Image="Assets/tiscali.jpg"}
+                new OperatorType{Text="Tiscali",Type="Z", Image="Assets/tiscali.jpg"},
+                    new OperatorType{Text="Fastweb",Type="F", Image= "Assets/fastweb.jpg"}
             };
 
 
@@ -72,7 +73,7 @@ namespace WindInfo
 
                 if ((App.Current as App).currentInfo != null && !string.IsNullOrEmpty((App.Current as App).currentInfo.Username) && !string.IsNullOrEmpty((App.Current as App).currentInfo.Password))
                 {
-                    NavigationService.Navigate(new Uri("/DataPage.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new Uri("/DataPage.xaml?paymentCheck=1", UriKind.Relative));
                 }
             }
 
@@ -163,7 +164,7 @@ namespace WindInfo
                       }
 
                   ok:
-                      SafeDispatcher.Run(() => NavigationService.Navigate(new Uri("/DataPage.xaml", UriKind.Relative)));
+                      SafeDispatcher.Run(() => NavigationService.Navigate(new Uri("/DataPage.xaml?paymentCheck=1", UriKind.Relative)));
                       WPUtils.StartPeriodicAgent(UpdateCreditAgent.AgentName);
                       return;
                   }
@@ -282,7 +283,7 @@ namespace WindInfo
             }
 
             authClient.Logout();
-            SafeDispatcher.Run(() => NavigationService.Navigate(new Uri("/DataPage.xaml", UriKind.Relative)));
+            SafeDispatcher.Run(() => NavigationService.Navigate(new Uri("/DataPage.xaml?paymentCheck=1", UriKind.Relative)));
         }
 
     }

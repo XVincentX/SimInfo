@@ -40,6 +40,9 @@ namespace WindInfo.Code
                 case "Z":
                     path = "Assets/tiscali.jpg";
                     break;
+                case "F":
+                    path = "Assets/fastweb.jpg";
+                    break;
                 default:
                     return null;
             }
