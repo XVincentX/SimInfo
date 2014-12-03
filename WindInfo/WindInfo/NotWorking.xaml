@@ -49,7 +49,7 @@
                     <controls:AccordionItem BorderThickness="0"  BorderBrush="Black" Background="Black" Foreground="White" FontSize="35" Header="{Binding Path=Resources.GetOther, Source={StaticResource LocalizedStrings}}">
                         <controls:AccordionItem.Content>
                             <StackPanel Height="450" Margin="10 0 10 0">
-                                <TextBlock TextWrapping="Wrap" Height="100" FontSize="{StaticResource PhoneFontSizeNormal}" Text="{Binding Path=Resources.TextOther, Source={StaticResource LocalizedStrings}}"></TextBlock>
+                                <TextBlock TextWrapping="Wrap" Height="150" FontSize="{StaticResource PhoneFontSizeNormal}" Text="{Binding Path=Resources.TextOther, Source={StaticResource LocalizedStrings}}"></TextBlock>
                                 <TextBox TextWrapping="Wrap" AcceptsReturn="True" Height="200" Name="textProblem"></TextBox>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Content="Reset" Click="Reset_Click"/>
