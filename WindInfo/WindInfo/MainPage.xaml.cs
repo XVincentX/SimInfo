@@ -82,7 +82,7 @@ namespace WindInfo
         }
 
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private async void loginButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(usrtxt.Text) || string.IsNullOrEmpty(pwdtxt.Password))
             {
@@ -96,6 +96,21 @@ namespace WindInfo
                 return;
             }
 
+            var prevData = await Storage.LoadAsync<byte[]>(IAPs.IAP_AdditionalLogin);
+            if (prevData != null)
+            {
+
+                var acc = BitConverter.ToInt32(ProtectedData.Unprotect(prevData, null), 0);
+
+                if (acc <= 1 + (App.Current as App).currentInfoArray.Count())
+                {
+                    var msg = new MessagePrompt { Title = AppResources.NoAviableNumbersTitle, Message = AppResources.NoAviableNumbersMessage, IsCancelVisible = true };
+                    msg.Completed += msg_Completed;
+                    msg.Show();
+                    return;
+                }
+
+            }
             progress.IsVisible = true;
             SystemTray.SetProgressIndicator(this, progress);
 
@@ -104,6 +119,12 @@ namespace WindInfo
             string usr = usrtxt.Text;
             string pwd = pwdtxt.Password;
             TaskDownloadData(progress, usr, pwd, (LLS.SelectedItem as OperatorType).Type);
+        }
+
+        private void msg_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
+        {
+            if (e.PopUpResult == PopUpResult.Ok)
+                NavigationService.Navigate(new Uri("/Addins.xaml", UriKind.Relative));
         }
 
 
