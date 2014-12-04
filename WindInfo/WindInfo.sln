@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindAuth", "..\WindAuth\Win
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringResources", "StringResources\StringResources.csproj", "{C4EFA0B5-5F21-4953-BC94-DB552B2632FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HerokuHost", "HerokuHost\HerokuHost.csproj", "{50662C0D-6007-45E3-BE31-D15B5B0F035B}"
-EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 7
@@ -152,16 +150,6 @@ Global
 		{C4EFA0B5-5F21-4953-BC94-DB552B2632FF}.Release|x64.ActiveCfg = Release|Any CPU
 		{C4EFA0B5-5F21-4953-BC94-DB552B2632FF}.Release|x86.ActiveCfg = Release|x86
 		{C4EFA0B5-5F21-4953-BC94-DB552B2632FF}.Release|x86.Build.0 = Release|x86
-		{50662C0D-6007-45E3-BE31-D15B5B0F035B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50662C0D-6007-45E3-BE31-D15B5B0F035B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50662C0D-6007-45E3-BE31-D15B5B0F035B}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{50662C0D-6007-45E3-BE31-D15B5B0F035B}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{50662C0D-6007-45E3-BE31-D15B5B0F035B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{50662C0D-6007-45E3-BE31-D15B5B0F035B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50662C0D-6007-45E3-BE31-D15B5B0F035B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50662C0D-6007-45E3-BE31-D15B5B0F035B}.Release|ARM.ActiveCfg = Release|Any CPU
-		{50662C0D-6007-45E3-BE31-D15B5B0F035B}.Release|x64.ActiveCfg = Release|Any CPU
-		{50662C0D-6007-45E3-BE31-D15B5B0F035B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
