@@ -77,7 +77,7 @@ namespace WindAuth.Code
             CreditInfo cr = new CreditInfo() { Username = username, Password = password, Type = type };
             cr.NumberInfos = new System.Collections.ObjectModel.ObservableCollection<NumberInfo>();
 
-            var ni = new NumberInfo { Number = msisdn, Credit = float.Parse(logData.result.data.CreditAmount), ExpirationDate = DateTime.ParseExact(logData.result.data.BundleList.Bundle.PeriodEndDate, "d/MM/yyyy", CultureInfo.GetCultureInfo("it-IT")), LastUpdate = DateTime.Now };
+            var ni = new NumberInfo { Number = msisdn, Credit = float.Parse(logData.result.data.CreditAmount), ExpirationDate = DateTime.ParseExact(logData.result.data.BundleList.Bundle.PeriodEndDate, new[] { "d/M/yyyy", "dd/MM/yyyy" }, CultureInfo.GetCultureInfo("it-IT"), DateTimeStyles.NoCurrentDateDefault), LastUpdate = DateTime.Now };
 
 
             foreach (dynamic bundle in logData.result.data.BundleList.Bundle.BundleElement)

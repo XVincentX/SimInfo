@@ -45,9 +45,9 @@ namespace WindAuth.Code
                     Credit = float.Parse(data.totalConsumption.balance),
                     SMS = data.usageServiceInfo.First(x => x.serviceType.Contains("SMS")).listOfPlafond.Sum(x => int.Parse(x.residual.Split(' ')[0])),
                     SMSTotal = data.usageServiceInfo.First(x => x.serviceType.Contains("SMS")).listOfPlafond.Sum(x => int.Parse(x.total.Split(' ')[0])),
-                    Gigabytes = (int)(100 / data.usageServiceInfo.First(x => x.serviceType.Contains("DATA")).listOfPlafond.Where(w => w.description.Contains("Fuel") == false).Sum(x => (int)float.Parse(x.total.Split(' ')[0])) * data.usageServiceInfo.First(x => x.serviceType.Contains("DATA")).listOfPlafond.Sum(x => (int)float.Parse(x.residual.Split(' ')[0]))),
+                    Gigabytes = (int)(100.0f / data.usageServiceInfo.First(x => x.serviceType.Contains("DATA")).listOfPlafond.Sum(x => (int)float.Parse(x.total.Split(' ')[0])) * data.usageServiceInfo.First(x => x.serviceType.Contains("DATA")).listOfPlafond.Sum(x => (int)float.Parse(x.residual.Split(' ')[0]))),
                     Minutes = data.usageServiceInfo.First(x => x.serviceType.Contains("VOICE")).listOfPlafond.Where(w => w.description.Contains("Fuel") == false).Sum(x => int.Parse(x.residual.Split(' ')[0])),
-                    MinutesTotal = data.usageServiceInfo.First(x => x.serviceType.Contains("VOICE")).listOfPlafond.Sum(x => int.Parse(x.total.Split(' ')[0])),
+                    MinutesTotal = data.usageServiceInfo.First(x => x.serviceType.Contains("VOICE")).listOfPlafond.Where(w => w.description.Contains("Fuel") == false).Sum(x => int.Parse(x.total.Split(' ')[0])),
                     GigabytesTotal = 100,
 
                 });
