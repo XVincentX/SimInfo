@@ -354,7 +354,7 @@ public class AuthServController : ApiController
                                 {
                                     dirty = true;
                                     dataPreference.smsShowed = true;
-                                    notifications.Add(new MpnsNotification(string.Format(toastTemplate, "Warning", string.Format("{0} : raggiunto limite SMS", dataPreference.FriendlyName), string.Format("/DataPage.xaml?number={0}", accountNumber.Number))));
+                                    notifications.Add(new MpnsNotification(string.Format(toastTemplate, "Warning", string.Format("{0} : raggiunto limite SMS", dataPreference.FriendlyName), string.Format("/DataPage.xaml?number={0}", HttpUtility.UrlEncode(accountNumber.Number)))));
                                 }
                                 else if (accountNumber.SMS >= dataPreference.SMSLimit)
                                     dataPreference.smsShowed = false;
@@ -362,7 +362,7 @@ public class AuthServController : ApiController
                                 {
                                     dirty = true;
                                     dataPreference.minShowed = true;
-                                    notifications.Add(new MpnsNotification(string.Format(toastTemplate, "Warning", string.Format("{0} : raggiunto limite minuti", dataPreference.FriendlyName), string.Format("/DataPage.xaml?number={0}", accountNumber.Number))));
+                                    notifications.Add(new MpnsNotification(string.Format(toastTemplate, "Warning", string.Format("{0} : raggiunto limite minuti", dataPreference.FriendlyName), string.Format("/DataPage.xaml?number={0}", HttpUtility.UrlEncode(accountNumber.Number)))));
                                 }
                                 else if (accountNumber.Minutes >= dataPreference.MinutesLimit)
                                     dataPreference.minShowed = false;
@@ -371,7 +371,7 @@ public class AuthServController : ApiController
                                 {
                                     dirty = true;
                                     dataPreference.gigaShowed = true;
-                                    notifications.Add(new MpnsNotification(string.Format(toastTemplate, "Warning", string.Format("{0} : raggiunto limite traffico", dataPreference.FriendlyName), string.Format("/DataPage.xaml?number={0}", accountNumber.Number))));
+                                    notifications.Add(new MpnsNotification(string.Format(toastTemplate, "Warning", string.Format("{0} : raggiunto limite traffico", dataPreference.FriendlyName), string.Format("/DataPage.xaml?number={0}", HttpUtility.UrlEncode(accountNumber.Number)))));
                                 }
                                 else if (accountNumber.Gigabytes >= dataPreference.GigabytesLimit)
                                     dataPreference.gigaShowed = false;
@@ -380,7 +380,7 @@ public class AuthServController : ApiController
                                 {
                                     dirty = true;
                                     dataPreference.clShowed = true;
-                                    notifications.Add(new MpnsNotification(string.Format(toastTemplate, "Warning", string.Format("{0} : raggiunto limite credito", dataPreference.FriendlyName), string.Format("/DataPage.xaml?number={0}", accountNumber.Number))));
+                                    notifications.Add(new MpnsNotification(string.Format(toastTemplate, "Warning", string.Format("{0} : raggiunto limite credito", dataPreference.FriendlyName), string.Format("/DataPage.xaml?number={0}", HttpUtility.UrlEncode(accountNumber.Number)))));
                                 }
                                 else if (accountNumber.Credit >= dataPreference.CreditLimit)
                                     dataPreference.clShowed = false;

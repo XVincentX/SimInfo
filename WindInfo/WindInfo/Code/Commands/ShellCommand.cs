@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -54,7 +55,7 @@ namespace WindInfo.Code
             };
 
 
-            string tileUri = string.Concat("/DataPage.xaml?number=", number);
+            string tileUri = string.Concat("/DataPage.xaml?number=", HttpUtility.UrlEncode(number));
             ShellTile.Create(new Uri(tileUri, UriKind.Relative), tileData, false);
 
         }

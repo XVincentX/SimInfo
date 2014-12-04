@@ -7,6 +7,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -73,7 +74,7 @@ namespace WindInfo.Code
                 foreach (var number in current.NumberInfos.Where(n => n.NotifyEnabled))
                 {
 
-                    var toast = (new ShellToast { Title = AppResources.GenericLimit, NavigationUri = new Uri(string.Concat("/DataPage.xaml?number=", number.Number), UriKind.Relative) });
+                    var toast = (new ShellToast { Title = AppResources.GenericLimit, NavigationUri = new Uri(string.Concat("/DataPage.xaml?number=", HttpUtility.UrlEncode(number.Number)), UriKind.Relative) });
 
                     if (number.CreditLimitReached && !number.clShowed)
                     {

@@ -30,7 +30,8 @@ namespace WindInfo
 
         private void StackPanel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri(string.Format("/DataPage.xaml?number={0}", (sender as FrameworkElement).Tag), UriKind.Relative));
+
+            NavigationService.Navigate(new Uri(string.Format("/DataPage.xaml?number={0}", HttpUtility.UrlEncode((sender as FrameworkElement).Tag.ToString())), UriKind.Relative));
         }
 
         private async void Add_Click(object sender, EventArgs e)
