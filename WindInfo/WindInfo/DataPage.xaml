@@ -70,7 +70,6 @@
         <Wind:ColorsCollection x:Key="AccentColors"/>
         <Wind:ColorToBrush x:Key="ColorToBrush"/>
         <Wind:PercentageToColorConverter x:Key="PercentageToColorConverter"/>
-        <Wind:BrushToItemSource x:Key="BrushToItemSource"/>
         <wc:HiddenLessZero x:Key="HiddenLessZero"/>
         <Wind:DateToPercentageConverter x:Key="DateToPercentage"/>
         <Wind:TypeToImageConverter x:Key="TTIC"/>

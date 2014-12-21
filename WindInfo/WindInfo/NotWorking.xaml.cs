@@ -33,7 +33,7 @@ namespace WindInfo
             (FindName("Send") as Control).IsEnabled = false;
             SystemTray.SetProgressIndicator(this, new ProgressIndicator { IsVisible = true, IsIndeterminate = true, Text = "Sending..." });
 
-            using (var webclient = new HttpClient(new OAuthProtectedResourceMessageHandler { ConsumerKey = "14a8a3b2e97716d92d21f1d66a58f6f3", ConsumerSecret = "f20f027623385fbafdb905622c78a5f18066ea00255390d3ffb61e16aa9b3dbe", AccessToken = "fd65690a317fbc6454dbbe15108160facc2b8d916889f2f88af9fd8656abe32a" }, true) { BaseAddress = new Uri("https://api.trello.com/1/") })
+            using (var webclient = new HttpClient(new OAuthProtectedResourceMessageHandler(t => { }) { ConsumerKey = "14a8a3b2e97716d92d21f1d66a58f6f3", ConsumerSecret = "f20f027623385fbafdb905622c78a5f18066ea00255390d3ffb61e16aa9b3dbe", AccessToken = "fd65690a317fbc6454dbbe15108160facc2b8d916889f2f88af9fd8656abe32a" }, true) { BaseAddress = new Uri("https://api.trello.com/1/") })
             {
                 var result = await webclient.PostAsJsonAsync("cards",
                 new

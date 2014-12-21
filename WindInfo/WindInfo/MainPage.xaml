@@ -90,7 +90,6 @@
                 <TextBox Text="" Grid.Row="0" Grid.Column="1" TabIndex="1" x:Name="usrtxt" />
                 <PasswordBox Grid.Row="1" Grid.Column="1" Password="" TabIndex="2" x:Name="pwdtxt" />
                 <Button TabIndex="3" Grid.Row="3" Grid.Column="1" x:Name="loginButton" Content="Login" Click="loginButton_Click"/>
-                <Button Visibility="Collapsed" TabIndex="4" Grid.Row="4" Grid.Column="1" x:Name="livelogin" Click="livelogin_Click" Content="OneDrive Login"/>
                 <Button TabIndex="5" Grid.Row="5" Grid.Column="1" x:Name="notworking" Content="{Binding Path=Resources.NotWorking, Source={StaticResource LocalizedStrings}, FallbackValue='Non funziona!'}" Click="notworking_Click"/>
                 <toolkit:ListPicker x:Name="LLS" Grid.Column="1" Grid.Row="2">
                     <toolkit:ListPicker.ItemTemplate>
