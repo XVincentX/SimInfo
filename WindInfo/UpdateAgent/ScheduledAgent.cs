@@ -149,7 +149,7 @@ namespace WindInfo.Code
             }
             catch (Exception e)
             {
-                if (e.Message.Contains("err") || e.Message.Contains("pass") || e.Message.Contains("user"))
+                if (e.Message.Contains("err") || e.Message.Contains("pass") || e.Message.Contains("user") || e.Message.Contains("valid"))
                 {
                     ShellToast t = new ShellToast { Content = e.Message };
                     t.Show();
