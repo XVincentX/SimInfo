@@ -102,7 +102,7 @@ namespace WindInfo
 
                 var acc = BitConverter.ToInt32(ProtectedData.Unprotect(prevData, null), 0);
 
-                if (acc <= 1 + (App.Current as App).currentInfoArray.Count())
+                if (acc <= 1 + (App.Current as App).currentInfoArray.Count() && acc != 1)
                 {
                     var msg = new MessagePrompt { Title = AppResources.NoAviableNumbersTitle, Message = AppResources.NoAviableNumbersMessage, IsCancelVisible = true };
                     msg.Completed += msg_Completed;
