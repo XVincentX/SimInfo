@@ -52,11 +52,7 @@ namespace WindInfo.Code
                 var o = Utils.GetArraySavedState();
 
                 var current = Enumerable.Repeat(c, 1).Concat(o).OrderByDescending(x => x.NumberInfos.First().LastUpdate).First();
-                var tsk1 = CreditInfoRetriever.Get().RetrieveCreditInfo(current.Username, current.Password, current.Type, Guid.Empty);
-                tsk1.Wait();
-
-
-                var nw = tsk1.Result;
+                var nw = await CreditInfoRetriever.Get().RetrieveCreditInfo(current.Username, current.Password, current.Type, Guid.Empty);
 
                 if (current == null || nw == null || string.IsNullOrEmpty(current.Password) || string.IsNullOrEmpty(current.Username) || !NetworkInterface.GetIsNetworkAvailable())
                 {
@@ -151,9 +147,13 @@ namespace WindInfo.Code
                 await tsk;
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                //Report the bug
+                if (e.Message.Contains("err") || e.Message.Contains("pass") || e.Message.Contains("user"))
+                {
+                    ShellToast t = new ShellToast { Content = e.Message };
+                    t.Show();
+                }
             }
             finally
             {

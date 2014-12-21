@@ -17,12 +17,10 @@ namespace Tiles
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (value == null)
-                return null;
 
-            if (string.IsNullOrEmpty(value.ToString()))
+            if (value == null || string.IsNullOrEmpty(value.ToString()))
             {
-                return Colors.Transparent;
+                return ((targetType == typeof(Color)) ? (object)Colors.Transparent : (object)(new SolidColorBrush(Colors.Transparent)));
             }
 
 

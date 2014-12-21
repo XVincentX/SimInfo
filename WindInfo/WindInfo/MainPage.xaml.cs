@@ -114,7 +114,7 @@ namespace WindInfo
             progress.IsVisible = true;
             SystemTray.SetProgressIndicator(this, progress);
 
-            notworking.IsEnabled = LLS.IsEnabled = loginButton.IsEnabled = usrtxt.IsEnabled = pwdtxt.IsEnabled = livelogin.IsEnabled = false;
+            notworking.IsEnabled = LLS.IsEnabled = loginButton.IsEnabled = usrtxt.IsEnabled = pwdtxt.IsEnabled = false;
 
             string usr = usrtxt.Text;
             string pwd = pwdtxt.Password;
@@ -149,7 +149,7 @@ namespace WindInfo
                           {
                               SafeDispatcher.Run(() =>
                               {
-                                  progress.IsVisible = false; SystemTray.SetProgressIndicator(this, progress); notworking.IsEnabled = LLS.IsEnabled = livelogin.IsEnabled = loginButton.IsEnabled = usrtxt.IsEnabled = pwdtxt.IsEnabled = true;
+                                  progress.IsVisible = false; SystemTray.SetProgressIndicator(this, progress); notworking.IsEnabled = LLS.IsEnabled = loginButton.IsEnabled = usrtxt.IsEnabled = pwdtxt.IsEnabled = true;
                                   var msg = new MessagePrompt { Title = AppResources.NoAviableNumbersTitle, Message = AppResources.NoAviableNumbersMessage, IsCancelVisible = true };
                                   msg.Completed += addin_buy;
                                   msg.Show();
@@ -192,7 +192,7 @@ namespace WindInfo
                   catch (Exception ex)
                   {
                       var msg = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
-                      SafeDispatcher.Run(() => { progress.IsVisible = false; SystemTray.SetProgressIndicator(this, progress); notworking.IsEnabled = LLS.IsEnabled = livelogin.IsEnabled = loginButton.IsEnabled = usrtxt.IsEnabled = pwdtxt.IsEnabled = true; new MessagePrompt { Message = msg, Title = "SimInfo" }.Show(); });
+                      SafeDispatcher.Run(() => { progress.IsVisible = false; SystemTray.SetProgressIndicator(this, progress); notworking.IsEnabled = LLS.IsEnabled = loginButton.IsEnabled = usrtxt.IsEnabled = pwdtxt.IsEnabled = true; new MessagePrompt { Message = msg, Title = "SimInfo" }.Show(); });
                       return;
                   }
               });
@@ -254,57 +254,6 @@ namespace WindInfo
         void ThankYou(object sender, RoutedEventArgs e)
         {
             new MessagePrompt() { Title = "Thank you", Message = AppResources.ThankYou, IsCancelVisible = false, IsAppBarVisible = false }.Show();
-        }
-
-        private async void livelogin_Click(object sender, RoutedEventArgs e)
-        {
-            notworking.IsEnabled = LLS.IsEnabled = livelogin.IsEnabled = loginButton.IsEnabled = usrtxt.IsEnabled = pwdtxt.IsEnabled = false;
-            var authClient = new LiveAuthClient("000000004812404D");
-            LiveLoginResult loginresult = await authClient.InitializeAsync(new string[] { "wl.signin", "wl.skydrive", "wl.skydrive_update" });
-
-            if (loginresult.Status != LiveConnectSessionStatus.Connected)
-                loginresult = await authClient.LoginAsync(new string[] { "wl.signin", "wl.skydrive", "wl.skydrive_update" });
-
-            if (loginresult.Status == LiveConnectSessionStatus.Connected)
-            {
-                var tray = new ProgressIndicator();
-                tray.IsVisible = true;
-                tray.IsIndeterminate = true;
-                SystemTray.SetProgressIndicator(this, tray);
-
-                var client = new LiveConnectClient(loginresult.Session);
-
-
-                string folder = await DataPage.CreateDirectoryAsync(client, "siminfo", "me/skydrive");
-                var result = await DataPage.DownloadFileAsync(client, "siminfo", "data");
-
-                IEnumerable<Tuple<string, string, string>> cr = JsonConvert.DeserializeObject<IEnumerable<Tuple<string, string, string>>>(result);
-
-                (App.Current as App).currentInfo = await WindJsonParsingClient.Get().RetrieveCreditInfo(cr.First().Item1, cr.First().Item2, cr.First().Item3, Guid.Empty);
-                (App.Current as App).currentInfoArray = new CreditInfo[cr.Count() - 1];
-
-                for (int i = 1; i < cr.Count(); i++)
-                {
-                    (App.Current as App).currentInfoArray[i - 1] = await WindJsonParsingClient.Get().RetrieveCreditInfo(cr.ElementAt(i).Item1, cr.ElementAt(i).Item2, cr.ElementAt(i).Item3, Guid.Empty);
-                }
-
-                Utils.SaveCreditState((App.Current as App).currentInfo);
-                Utils.SaveCreditState((App.Current as App).currentInfoArray);
-
-
-                tray.IsVisible = false;
-                SystemTray.SetProgressIndicator(this, tray);
-                notworking.IsEnabled = LLS.IsEnabled = livelogin.IsEnabled = loginButton.IsEnabled = usrtxt.IsEnabled = pwdtxt.IsEnabled = true;
-
-            }
-            else
-            {
-                var p = new MessagePrompt { Body = AppResources.CloudReject, Title = string.Empty };
-                p.Show();
-            }
-
-            authClient.Logout();
-            SafeDispatcher.Run(() => NavigationService.Navigate(new Uri("/DataPage.xaml?paymentCheck=1", UriKind.Relative)));
         }
 
     }

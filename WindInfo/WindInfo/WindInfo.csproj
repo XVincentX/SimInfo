@@ -110,8 +110,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.8\lib\windowsphone8\Coding4Fun.Toolkit.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="HttpClientExtras">
-      <HintPath>..\packages\HttpClientExtras.1.0.0\lib\HttpClientExtras.dll</HintPath>
+    <Reference Include="HttpClientExtras, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HttpClientExtras.1.1.0\lib\portable-net45+wp8+win8\HttpClientExtras.dll</HintPath>
     </Reference>
     <Reference Include="HttpClientExtras.WP8">
       <HintPath>..\packages\HttpClientExtras.WP8.1.0.0\lib\wp8\HttpClientExtras.WP8.dll</HintPath>
