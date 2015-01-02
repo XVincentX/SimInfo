@@ -89,7 +89,8 @@ namespace WindAuth.Code
 
 
             Task.WaitAll(tasks.ToArray());
-
+            if (!cr.NumberInfos.Any())
+                throw new Exception("Impossibile trovare SIM disponibili");
             return cr;
 
         }
