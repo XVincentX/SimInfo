@@ -109,7 +109,10 @@ namespace WindAuth.Code
                         }
                         if (promo.value.ToLower().Contains("mb"))
                         {
-                            var number = Regex.Matches(promo.value, @"\d+.").Cast<Match>().First(x => x.Value.Contains("."));
+                            var number = Regex.Matches(promo.value, @"\d+.").Cast<Match>().FirstOrDefault(x => x.Value.Contains("."));
+                            if (number == null)
+                                number = numbers[0];
+
                             if (nm.GigabytesTotal % 111111 == 0)
                                 nm.GigabytesTotal = nm.Gigabytes = 100;
                             else
